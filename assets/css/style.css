@@ -1167,3 +1167,91 @@ nav {
   display: block;
   margin-top: 6px;
 }
+
+/* Price Hyperlinks */
+a.price.price-link {
+  color: var(--primary-color) !important;
+  text-decoration: none !important;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 1px;
+  font-weight: 700;
+  cursor: pointer !important;
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+a.price.price-link:hover {
+  color: var(--accent-color) !important;
+  border-bottom-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* Autocomplete Search Dropdown Styling */
+.nav-search-results-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 260px;
+  max-height: 280px;
+  overflow-y: auto;
+  background: rgba(10, 17, 14, 0.98);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  z-index: 10000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  margin-top: 8px;
+  display: none;
+  backdrop-filter: blur(10px);
+}
+
+/* Right align on desktop to prevent clipping off screen edge */
+.nav-search-wrap.desktop-only .nav-search-results-list {
+  left: auto;
+  right: 0;
+}
+
+.nav-search-result-item {
+  padding: 10px 14px;
+  color: var(--text-white, #ffffff);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-search-result-item:last-child {
+  border-bottom: none;
+}
+
+.nav-search-result-item:hover,
+.nav-search-result-item.active {
+  background: var(--accent-color);
+  color: #0c110e !important;
+}
+
+.nav-search-result-item .result-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.nav-search-result-item .result-loc {
+  font-size: 0.72rem;
+  color: var(--text-white-muted, rgba(255, 255, 255, 0.6));
+}
+
+.nav-search-result-item:hover .result-loc,
+.nav-search-result-item.active .result-loc {
+  color: #0c110e !important;
+}
+
+.nav-search-no-results {
+  padding: 12px 14px;
+  color: var(--text-white-muted, rgba(255, 255, 255, 0.6));
+  font-size: 0.8rem;
+  text-align: center;
+  font-style: italic;
+}
+

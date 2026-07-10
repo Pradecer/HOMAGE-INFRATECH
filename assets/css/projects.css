@@ -253,19 +253,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
+  margin-top: 20px;
+}
+
+.project-price-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .project-price-wrap span.label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
 .project-price-wrap span.price {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--primary-color);
+}
+
+.project-card-footer .btn {
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  border-radius: var(--border-radius-sm);
+  box-shadow: none;
+}
+
+.project-card-footer .btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* --- Project Details Modal --- */
@@ -420,4 +441,169 @@
   .amenities-list {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- Premium Accordion Menu for Project Categories --- */
+.accordion-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.accordion-item {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.accordion-item:hover {
+  border-color: var(--border-emerald-light);
+  box-shadow: var(--shadow-md);
+}
+
+.accordion-header {
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--bg-white);
+  transition: var(--transition-fast);
+  user-select: none;
+}
+
+.accordion-header:hover {
+  background-color: var(--bg-light);
+}
+
+.accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.accordion-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--border-radius-md);
+  background-color: rgba(13, 92, 58, 0.08);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.accordion-item.active .accordion-icon {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+}
+
+.accordion-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.accordion-title-wrap h3 {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.accordion-title-wrap p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.accordion-toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.accordion-header:hover .accordion-toggle-btn {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+}
+
+.accordion-toggle-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  transition: var(--transition-smooth);
+}
+
+.accordion-item.active .accordion-toggle-btn svg {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--bg-white);
+  border-top: 0 solid var(--border-color);
+}
+
+.accordion-item.active .accordion-content {
+  border-top: 1px solid var(--border-color);
+}
+
+.accordion-content-inner {
+  padding: 30px;
+}
+
+/* Location chips grid */
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.location-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  color: var(--primary-dark);
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.location-chip:hover {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.location-chip svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  opacity: 0.7;
+  transition: var(--transition-fast);
+}
+
+.location-chip:hover svg {
+  transform: translateX(3px);
+  opacity: 1;
 }
