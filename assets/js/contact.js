@@ -97,6 +97,10 @@ function initContactForm() {
       }
       leads.push(leadData);
       localStorage.setItem('homage_leads', JSON.stringify(leads));
+      localStorage.setItem('homage_enquiry_submitted', 'true');
+      localStorage.setItem('homage_user_name', leadData.name);
+      localStorage.setItem('homage_user_email', leadData.email);
+      localStorage.setItem('homage_user_phone', leadData.phone);
       
       // Re-enable form
       if (submitBtn) {
