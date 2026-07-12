@@ -309,3 +309,79 @@
   transform: translateY(-1.5px);
   box-shadow: var(--shadow-sm);
 }
+
+/* --- Card Header Image Carousel styles --- */
+.f-card-carousel {
+  position: relative;
+}
+
+.f-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(13, 22, 18, 0.75);
+  border: 1px solid rgba(193, 154, 79, 0.3);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  color: var(--accent-color);
+  opacity: 0;
+  pointer-events: none;
+  padding: 0;
+}
+
+.f-card-carousel:hover .f-carousel-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.f-carousel-btn:hover {
+  background: var(--accent-color);
+  color: #0d1612;
+  border-color: var(--accent-color);
+}
+
+.f-carousel-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.f-prev-btn {
+  left: 10px;
+}
+
+.f-next-btn {
+  right: 10px;
+}
+
+.f-carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.f-carousel-dots .f-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.f-carousel-dots .f-dot.active {
+  background: var(--accent-color);
+  width: 14px;
+  border-radius: 3px;
+}
+

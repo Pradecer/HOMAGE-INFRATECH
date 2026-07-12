@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initOnloadPopup();
   initNavSearch();
+  initCardCarousels();
 });
 
 /**
@@ -443,6 +444,47 @@ function initNavSearch() {
     { name: "KLJ Green", url: "faridabad/sector-77/index.html#klj-green", keywords: ["klj green", "green", "klj", "sector 77"] },
     { name: "KLJ Platinum Floors", url: "faridabad/sector-77/index.html#klj-platinum-floors", keywords: ["klj floors", "platinum floors", "klj platinum floors", "sector 77"] },
     { name: "KLJ JALWAYU Vihar", url: "faridabad/sector-77/index.html#klj-jalwayu-vihar", keywords: ["jalwayu", "jalwayu vihar", "klj jalwayu", "sector 77"] },
+    
+    // Sector 78 Projects
+    { name: "Habitat 2/3 BHK", url: "faridabad/sector-78/index.html#habitat-2-3-bhk", keywords: ["habitat", "habitat 2/3", "sector 78", "residences"] },
+    { name: "Habitat Residences", url: "faridabad/sector-78/index.html#habitat-residences", keywords: ["habitat residences", "residences", "sector 78"] },
+    { name: "Habitat Sector 78", url: "faridabad/sector-78/index.html#habitat-sector-78", keywords: ["habitat sector 78", "habitat 78", "sector 78"] },
+    { name: "Adore Broadway", url: "faridabad/sector-78/index.html#adore-broadway", keywords: ["adore", "broadway", "adore broadway", "sector 78"] },
+    
+    // Sector 79 Projects
+    { name: "World Street SCO", url: "faridabad/sector-79/index.html#world-street-sco", keywords: ["world street", "sco", "world street sco", "sector 79"] },
+    { name: "OMAXE Sun", url: "faridabad/sector-79/index.html#omaxe-sun", keywords: ["omaxe", "sun", "omaxe sun", "sector 79"] },
+    { name: "Hi Fun Mall", url: "faridabad/sector-79/index.html#hi-fun-mall", keywords: ["hi fun", "mall", "hi fun mall", "sector 79"] },
+    { name: "Universal SCO (Auric)", url: "faridabad/sector-79/index.html#universal-sco-auric", keywords: ["universal", "sco", "auric", "sector 79"] },
+    { name: "Capital SCO", url: "faridabad/sector-79/index.html#capital-sco", keywords: ["capital", "sco", "capital sco", "sector 79"] },
+
+    // Sector 80 Projects
+    { name: "BPTP Sky Nest (3&4 BHK)", url: "faridabad/sector-80/index.html#bptp-sky-nest", keywords: ["bptp", "sky nest", "sky", "nest", "sector 80"] },
+    { name: "BPTP Discovery Park Phase 1 (2&3 BHK)", url: "faridabad/sector-80/index.html#bptp-discovery-park-phase-1", keywords: ["discovery", "park", "discovery park", "phase 1", "sector 80"] },
+    { name: "BPTP Discovery Park Phase 2 (Duplex)", url: "faridabad/sector-80/index.html#bptp-discovery-park-phase-2", keywords: ["discovery", "park", "discovery park", "phase 2", "duplex", "sector 80"] },
+    { name: "Z Block BPTP", url: "faridabad/sector-80/index.html#bptp-block-z", keywords: ["block z", "z block", "bptp z", "sector 80"] },
+    { name: "Ansal Crown", url: "faridabad/sector-80/index.html#ansal-crown", keywords: ["ansal", "crown", "ansal crown", "sector 80"] },
+
+    // Sector 81 Projects
+    { name: "Puri Anand Villa", url: "faridabad/sector-81/index.html#puri-anand-villa", keywords: ["puri", "anand", "villa", "anand villa", "sector 81"] },
+    { name: "Puri 81 High Street Mall", url: "faridabad/sector-81/index.html#puri-81-high-street-mall", keywords: ["puri", "high street", "mall", "puri 81", "sector 81"] },
+    { name: "Puri 81 Business Hub", url: "faridabad/sector-81/index.html#puri-81-business-hub", keywords: ["puri", "business", "hub", "business hub", "sector 81"] },
+    { name: "BPTP Eden-Estate Plot", url: "faridabad/sector-81/index.html#bptp-eden-estate-plot", keywords: ["bptp", "eden", "estate", "eden estate", "sector 81"] },
+    { name: "Puri VIP Floor", url: "faridabad/sector-81/index.html#puri-vip-floor", keywords: ["puri", "vip", "floor", "vip floor", "sector 81"] },
+    { name: "BPTP Park 81", url: "faridabad/sector-81/index.html#bptp-park-81", keywords: ["bptp", "park", "park 81", "sector 81"] },
+    { name: "BPTP District 81 (Block B)", url: "faridabad/sector-81/index.html#bptp-district-81-block-b", keywords: ["bptp", "district", "district 81", "block b", "sector 81"] },
+    { name: "BPTP District 81 (Block C)", url: "faridabad/sector-81/index.html#bptp-district-81-block-c", keywords: ["bptp", "district", "district 81", "block c", "sector 81"] },
+    { name: "Vipul Plaza", url: "faridabad/sector-81/index.html#vipul-plaza", keywords: ["vipul", "plaza", "vipul plaza", "sector 81"] },
+    { name: "Amolik Plaza 81", url: "faridabad/sector-81/index.html#amolik-plaza-81", keywords: ["amolik", "plaza", "amolik plaza 81", "sector 81"] },
+
+    // Sector 82 Projects
+    { name: "Amolik Plaza 82", url: "faridabad/sector-82/index.html#amolik-plaza-82", keywords: ["amolik", "plaza", "amolik plaza 82", "sector 82"] },
+    { name: "Mansha Vega Street", url: "faridabad/sector-82/index.html#mansha-vega-street", keywords: ["mansha", "vega", "street", "vega street", "sector 82"] },
+    { name: "Florida-Auric", url: "faridabad/sector-82/index.html#florida-auric", keywords: ["florida", "auric", "florida auric", "sector 82"] },
+    { name: "Puri Pranayam", url: "faridabad/sector-82/index.html#puri-pranayam", keywords: ["puri", "pranayam", "puri pranayam", "sector 82"] },
+    { name: "SPR - Imperial Estate", url: "faridabad/sector-82/index.html#spr-imperial-estate", keywords: ["spr", "imperial", "estate", "imperial estate", "sector 82"] },
+    { name: "BPTP N Block Plot & SCO", url: "faridabad/sector-82/index.html#bptp-n-block-plot-sco", keywords: ["bptp", "n block", "block n", "sco", "sector 82"] },
+
     { name: "Gurugram Plots", url: "projects/gurugram.html", keywords: ["gurugram", "dwarka expressway", "dwarka", "gurgaon", "dwarka plots"] },
     { name: "Sohna Plots", url: "projects/sohna.html", keywords: ["sohna", "sohna plots", "sohna road"] },
     { name: "Prithla Plots", url: "projects/prithla.html", keywords: ["prithla", "prithla plots", "industrial plots"] },
@@ -455,11 +497,16 @@ function initNavSearch() {
     { name: "Dholera Plots", url: "projects/dholera.html", keywords: ["dholera", "dholera plots", "gujarat"] },
     { name: "Sector 82 Plots (Faridabad)", url: "projects/sector-82.html", keywords: ["sector 82", "sector 82 plots", "faridabad"] }
   ];
-
+ 
   function getLocText(url) {
     if (url.includes('sector-75')) return 'Sector 75, Faridabad';
     if (url.includes('sector-76')) return 'Sector 76, Faridabad';
     if (url.includes('sector-77')) return 'Sector 77, Faridabad';
+    if (url.includes('sector-78')) return 'Sector 78, Faridabad';
+    if (url.includes('sector-79')) return 'Sector 79, Faridabad';
+    if (url.includes('sector-80')) return 'Sector 80, Faridabad';
+    if (url.includes('sector-81')) return 'Sector 81, Faridabad';
+    if (url.includes('sector-82')) return 'Sector 82, Faridabad';
     if (url.includes('gurugram')) return 'Dwarka Expressway, Gurugram';
     if (url.includes('sohna')) return 'Sohna, Gurugram';
     if (url.includes('prithla')) return 'Prithla, Faridabad';
@@ -469,13 +516,12 @@ function initNavSearch() {
     if (url.includes('khatu-shyam')) return 'Khatu Shyam, Rajasthan';
     if (url.includes('garhmukteshwar')) return 'Garhmukteshwar';
     if (url.includes('dholera')) return 'Dholera (Gujarat)';
-    if (url.includes('sector-82')) return 'Sector 82, Faridabad';
     return '';
   }
-
+ 
   function getPagePrefix() {
     let prefix = '';
-    if (window.location.pathname.includes('/sector-75/') || window.location.pathname.includes('/sector-76/') || window.location.pathname.includes('/sector-77/')) {
+    if (window.location.pathname.includes('/faridabad/sector-')) {
       prefix = '../../';
     } else if (window.location.pathname.includes('/about-us/') ||
                window.location.pathname.includes('/contact-us/') ||
@@ -823,7 +869,7 @@ function initPriceLinks() {
         // Get path prefix
         let pathPrefix = '';
         const pathname = window.location.pathname;
-        if (pathname.includes('/sector-75/') || pathname.includes('/sector-76/') || pathname.includes('/sector-77/')) {
+        if (pathname.includes('/faridabad/sector-')) {
           pathPrefix = '../../';
         } else if (pathname.includes('/about-us/') || pathname.includes('/projects/') || pathname.includes('/gallery/') || pathname.includes('/testimonials/') || pathname.includes('/contact-us/') || pathname.includes('/faridabad/')) {
           pathPrefix = '../';
@@ -842,4 +888,73 @@ function initPriceLinks() {
     }
   });
 }
+
+/**
+ * Initialize image carousels inside .f-card-carousel elements
+ */
+function initCardCarousels() {
+  const carousels = document.querySelectorAll('.f-card-carousel');
+  carousels.forEach(carousel => {
+    const imgData = carousel.getAttribute('data-images');
+    if (!imgData) return;
+    
+    const images = imgData.split(',').map(s => s.trim()).filter(Boolean);
+    if (images.length <= 1) return;
+    
+    let currentIndex = 0;
+    const imgEl = carousel.querySelector('img');
+    if (!imgEl) return;
+    
+    // Add prev/next buttons
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'f-carousel-btn f-prev-btn';
+    prevBtn.setAttribute('aria-label', 'Previous image');
+    prevBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>`;
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'f-carousel-btn f-next-btn';
+    nextBtn.setAttribute('aria-label', 'Next image');
+    nextBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>`;
+    
+    carousel.appendChild(prevBtn);
+    carousel.appendChild(nextBtn);
+    
+    // Add dots
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'f-carousel-dots';
+    images.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = i === 0 ? 'f-dot active' : 'f-dot';
+      dotsWrap.appendChild(dot);
+    });
+    carousel.appendChild(dotsWrap);
+    
+    function updateCarousel() {
+      imgEl.src = images[currentIndex];
+      const dots = dotsWrap.querySelectorAll('.f-dot');
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+    
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    });
+  });
+}
+
 
