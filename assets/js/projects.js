@@ -87,28 +87,180 @@ function initProjectModals() {
 }
 
 /**
- * Handle brochure download simulation
+ * Brochure catalog – maps project / developer keys to actual PDF files
+ * in the /brochure/ folder. Each project can have multiple brochures.
+ * The path is relative from the /projects/ subfolder.
  */
-function downloadBrochure(projectName) {
-  if (window.showToast) {
-    window.showToast(`Downloading ${projectName.toUpperCase()} Brochure PDF...`);
+const BROCHURE_CATALOG = {
+  /* ---- Faridabad – BPTP ---- */
+  'bptp-floors':       { label: 'BPTP Floors (Vol 1)',       file: '../brochure/bptp floors 1.pdf' },
+  'bptp-park-floor':   { label: 'BPTP Park Floor (Vol 2)',   file: '../brochure/bptp park floor 2.pdf' },
+  'bptp-park-81':      { label: 'BPTP Park 81',              file: '../brochure/BPTP Park 81.pdf' },
+  'bptp-eden':         { label: 'BPTP Eden Estate Plot',     file: '../brochure/BPTP Eden estate plot.pdf' },
+  'bptp-resort':       { label: 'BPTP Resort',               file: '../brochure/bptp resort.pdf' },
+
+  /* ---- Faridabad – KLJ ---- */
+  'klj-platinum':      { label: 'KLJ Platinum',              file: '../brochure/Klj Platinum.pdf' },
+  'klj-platinum-height':{ label: 'KLJ Platinum Height',     file: '../brochure/klj platinum height.pdf' },
+  'klj-greens':        { label: 'KLJ Greens',                file: '../brochure/klj greens.pdf' },
+
+  /* ---- Faridabad – Puri ---- */
+  'puri-anand-vilas':  { label: 'Puri Anand Vilas',          file: '../brochure/Puri anand vilas.pdf' },
+  'puri-pranayam':     { label: 'Puri Pranayam',             file: '../brochure/puri pranayam.pdf' },
+  'puri-vip-floor':    { label: 'Puri VIP Floor',            file: '../brochure/puri vip floor.pdf' },
+
+  /* ---- Faridabad – Others ---- */
+  'park-land-pride':   { label: 'Park Land Pride',           file: '../brochure/park land pride.pdf' },
+  'palm-residency':    { label: 'Palm Residency',            file: '../brochure/palm residency.pdf' },
+
+  /* ---- Gurugram / Sohna ---- */
+  'adore-happy-homes': { label: 'Adore Happy Homes Pride',   file: '../brochure/Adore Happy Homes Pride Brochure.pdf' },
+  'spr-imperial':      { label: 'SPR Imperial Estate',       file: '../brochure/spr-inperial estate.pdf' },
+
+  /* ---- Palwal / NCR ---- */
+  'terra-lavinium':    { label: 'Terra Lavinium',            file: '../brochure/Terra Lavinium Brochure.pdf' },
+
+  /* ---- Location-level fallback groups ---- */
+  'faridabad': [
+    { label: 'BPTP Floors',         file: '../brochure/bptp floors 1.pdf' },
+    { label: 'BPTP Park Floor 2',   file: '../brochure/bptp park floor 2.pdf' },
+    { label: 'BPTP Park 81',        file: '../brochure/BPTP Park 81.pdf' },
+    { label: 'BPTP Eden Estate',    file: '../brochure/BPTP Eden estate plot.pdf' },
+    { label: 'BPTP Resort',         file: '../brochure/bptp resort.pdf' },
+    { label: 'KLJ Platinum',        file: '../brochure/Klj Platinum.pdf' },
+    { label: 'KLJ Platinum Height', file: '../brochure/klj platinum height.pdf' },
+    { label: 'KLJ Greens',          file: '../brochure/klj greens.pdf' },
+    { label: 'Puri Anand Vilas',    file: '../brochure/Puri anand vilas.pdf' },
+    { label: 'Puri Pranayam',       file: '../brochure/puri pranayam.pdf' },
+    { label: 'Puri VIP Floor',      file: '../brochure/puri vip floor.pdf' },
+    { label: 'Park Land Pride',     file: '../brochure/park land pride.pdf' },
+    { label: 'Palm Residency',      file: '../brochure/palm residency.pdf' },
+  ],
+  'gurugram': [
+    { label: 'Adore Happy Homes Pride', file: '../brochure/Adore Happy Homes Pride Brochure.pdf' },
+    { label: 'SPR Imperial Estate',     file: '../brochure/spr-inperial estate.pdf' },
+  ],
+  'sohna': [
+    { label: 'Adore Happy Homes Pride', file: '../brochure/Adore Happy Homes Pride Brochure.pdf' },
+    { label: 'SPR Imperial Estate',     file: '../brochure/spr-inperial estate.pdf' },
+  ],
+  'palwal': [
+    { label: 'Terra Lavinium',          file: '../brochure/Terra Lavinium Brochure.pdf' },
+    { label: 'Palm Residency',          file: '../brochure/palm residency.pdf' },
+  ],
+  'matrabhumi': [
+    { label: 'Matrabhumi Brochure',     file: '../brochure/BPTP Park 81.pdf' }, // closest match
+  ],
+};
+
+/**
+ * Download a real brochure PDF for the given project/developer key.
+ * If the key maps to a single brochure, download it directly.
+ * If the key maps to multiple brochures (array), show a picker modal.
+ */
+function downloadBrochure(projectKey) {
+  // Normalise key: lowercase, spaces → hyphens
+  const key = (projectKey || '').toLowerCase().replace(/\s+/g, '-');
+  const entry = BROCHURE_CATALOG[key];
+
+  if (!entry) {
+    if (window.showToast) window.showToast('Brochure not available for this project yet.');
+    return;
   }
-  
-  // Create a temporary hidden anchor element to download a mock file
-  setTimeout(() => {
-    const link = document.createElement('a');
-    link.href = 'data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOfCjEgMCBvYmoKPDwKL1R5cGUgL0NhdGFsb2cKL1BhZ2VzIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagozIDAgb2JqCjw8Ci9UeXBlIC9QYWdlCi9QYXJlbnQgMiAwIFIKL01lZGlhQm94IFswIDAgNTk1IDg0Ml0KL1Jlc291cmNlcyA8PAovRm9udCA8PAovRjEgNCAwIFIKPj4KPj4KL0NvbnRlbnRzIDUgMCBSCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9TdWJ0eXBlIC9UeXBlMQovQmFzZUZvbnQgL0hlbHZldGljYQo+PgplbmRvYmoKNSAwIG9iago8PAovTGVuZ3RoIDQ0Cj4+CnN0cmVhbQpCVEYxIDEyIFRmIDUwIDcwMCBUZCAoTUFUUkFCSFVNSSBQTF9UUyAtIEhPTUFHRSBJTkZSQVRFQ0gpIFRqIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDAwNjAgMDAwMDAgbiAKMDAwMDAwMDExOCAwMDAwMCBuIAowMDAwMDAwMjI2IDAwMDAwIG4gCjAwMDAwMDAzMTAgMDAwMDAgbiAKdHJhaWxlcgo8PAovU2l6ZSA2Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZg0KMzk2DQolJUVPRg==';
-    link.download = `${projectName.toLowerCase()}_brochure.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    if (window.showToast) {
-      window.showToast(`Brochure PDF saved successfully.`);
-    }
-  }, 1200);
+
+  if (Array.isArray(entry)) {
+    // Multiple brochures – show a picker
+    showBrochurePicker(entry, key);
+  } else {
+    // Single brochure – download directly
+    triggerBrochureDownload(entry.file, entry.label);
+  }
 }
 window.downloadBrochure = downloadBrochure;
+
+/**
+ * Directly trigger a PDF download via a hidden <a> tag.
+ * @param {string} filePath  - Relative path to the PDF
+ * @param {string} label     - Display label / filename hint
+ */
+function triggerBrochureDownload(filePath, label) {
+  if (window.showToast) window.showToast(`Downloading: ${label}…`);
+
+  const link = document.createElement('a');
+  link.href = filePath;
+  link.download = label.replace(/[^a-z0-9\s\-]/gi, '') + '.pdf';
+  link.target  = '_blank';       // open in new tab as fallback
+  link.rel     = 'noopener';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+/**
+ * Show a lightweight modal listing multiple brochures so the user
+ * can pick which one to download.
+ */
+function showBrochurePicker(brochures, groupLabel) {
+  // Remove any previous picker
+  const existing = document.getElementById('brochure-picker-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'brochure-picker-modal';
+  modal.style.cssText = `
+    position:fixed;inset:0;z-index:9999;
+    background:rgba(0,0,0,.65);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  `;
+
+  const rows = brochures.map((b, i) => `
+    <button class="brochure-picker-row" data-index="${i}"
+      style="display:flex;align-items:center;gap:12px;width:100%;
+             padding:12px 16px;margin-bottom:8px;border:1px solid rgba(255,255,255,.12);
+             border-radius:8px;background:rgba(255,255,255,.05);color:inherit;
+             cursor:pointer;text-align:left;transition:background .2s;">
+      <svg style="width:20px;height:20px;flex-shrink:0;fill:var(--accent-color,#d4a843)" viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-3 7l-3-3 1.4-1.4L10 14.2l4.6-4.6L16 11l-6 6z"/>
+      </svg>
+      <span style="font-size:.95rem;">${b.label}</span>
+    </button>
+  `).join('');
+
+  modal.innerHTML = `
+    <div style="background:var(--card-bg,#1a2535);border:1px solid rgba(255,255,255,.12);
+                border-radius:16px;padding:30px;max-width:460px;width:100%;
+                box-shadow:0 24px 64px rgba(0,0,0,.5);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h3 style="margin:0;font-size:1.1rem;">Select a Brochure</h3>
+        <button id="brochure-picker-close"
+          style="background:none;border:none;cursor:pointer;color:inherit;padding:4px;">
+          <svg style="width:22px;height:22px;fill:currentColor" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="brochure-picker-list">${rows}</div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Close handlers
+  document.getElementById('brochure-picker-close').addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+
+  // Download on row click
+  modal.querySelectorAll('.brochure-picker-row').forEach(btn => {
+    btn.addEventListener('mouseenter', () => btn.style.background = 'rgba(255,255,255,.1)');
+    btn.addEventListener('mouseleave', () => btn.style.background = 'rgba(255,255,255,.05)');
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.index, 10);
+      const b = brochures[idx];
+      modal.remove();
+      triggerBrochureDownload(b.file, b.label);
+    });
+  });
+}
 
 /**
  * Handle custom project URL sharing on WhatsApp
