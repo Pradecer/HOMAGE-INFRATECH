@@ -13,6 +13,7 @@
   --accent-color: #c9a054;        /* Warm Gold */
   --accent-light: #e0b86c;
   --accent-dark: #a8813a;
+  --gold-gradient: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-color) 50%, var(--accent-dark) 100%);
   
   --bg-dark: #0a110e;             /* Obsidian Green */
   --bg-dark-card: #121e1a;

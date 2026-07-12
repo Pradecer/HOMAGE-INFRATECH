@@ -204,6 +204,171 @@
     </div>
   </section>
 
+  <!-- --- AWARDS & RECOGNITION (CAROUSEL) --- -->
+  <section class="awards-section section-padding">
+    <div class="container">
+      <div class="awards-grid">
+        <!-- Left Column: Image Slider Card -->
+        <div class="awards-gallery-slider">
+          <div class="award-slider-card" id="carousel-card">
+            <img id="carousel-img" src="../assets/images/award_mansha_2.jpg" alt="Homage Infratech award ceremony from Mansha Group">
+            
+            <!-- Navigation controls overlay -->
+            <button class="slider-btn prev-btn" id="carousel-prev" aria-label="Previous Slide">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="slider-btn next-btn" id="carousel-next" aria-label="Next Slide">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            
+            <!-- Dots indicator -->
+            <div class="slider-dots" id="carousel-dots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Animated Text Content -->
+        <div class="awards-content-slider">
+          <div class="slider-text-container" id="carousel-text-container">
+            <!-- Current active slide wrapper -->
+            <div class="slide-text-wrapper active-slide-text">
+              <span class="badge badge-accent">Honorable Recognition</span>
+              <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Mansha Group <span>Association Award</span></h2>
+              <p class="award-quote">
+                "Honored to receive this award from Mansha. Grateful for the recognition and encouragement. 🏆✨"
+              </p>
+              <p>Homage Infratech is deeply grateful to the Mansha Group for this prestigious recognition of our successful association, celebrating outstanding service quality and transparent transaction advisory in the regional property sector.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = [
+        {
+          image: "../assets/images/award_mansha_2.jpg",
+          alt: "Homage Infratech award ceremony from Mansha Group",
+          badge: "Honorable Recognition",
+          title: "Mansha Group <span>Association Award</span>",
+          quote: `"Honored to receive this award from Mansha. Grateful for the recognition and encouragement. 🏆✨"`,
+          desc: "Homage Infratech is deeply grateful to the Mansha Group for this prestigious recognition of our successful association, celebrating outstanding service quality and transparent transaction advisory in the regional property sector."
+        },
+        {
+          image: "../assets/images/award_handover.jpg",
+          alt: "Registry handover to valued client",
+          badge: "Client Happiness",
+          title: "Property Registry <span>Handover Ceremony</span>",
+          quote: `"Proud to hand over the property registry to our valued client on the purchase of their new builder floor. Congratulations on this wonderful achievement, and thank you for trusting us to be a part of your homeownership journey. Wishing you happiness and prosperity in your new home!"`,
+          desc: "Achieving homeownership is a life-defining milestone. Our team stands committed to managing secure title deeds, registry clearance, and seamless builder floor key handovers to ensure zero friction for buyers."
+        },
+        {
+          image: "../assets/images/award_training.jpg",
+          alt: "Team training at Bhumika",
+          badge: "Strategic Excellence",
+          title: "Insightful Team Training <span>at Bhumika</span>",
+          quote: `"Team Training at Bhumika 🚀 Conducted an insightful team training session at Bhumika for their upcoming projects. Empowering our team with knowledge, strategy, and confidence to deliver the best results. Exciting opportunities ahead! ✨"`,
+          desc: "Continuous education keeps our consultants at the cutting edge. This masterclass aligns our strategy, refines legal checkpoints, and equips the sales force to advise clients perfectly on Bhumika's upcoming high-appreciation layouts."
+        }
+      ];
+
+      let currentIndex = 0;
+      let isTransitioning = false;
+
+      const imgElement = document.getElementById('carousel-img');
+      const cardElement = document.getElementById('carousel-card');
+      const textContainer = document.getElementById('carousel-text-container');
+      const prevBtn = document.getElementById('carousel-prev');
+      const nextBtn = document.getElementById('carousel-next');
+      const dotsContainer = document.getElementById('carousel-dots');
+
+      function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      function transitionSlide(nextIndex, direction) {
+        if (isTransitioning || nextIndex === currentIndex) return;
+        isTransitioning = true;
+
+        // 1. Fade out current image
+        cardElement.classList.add('changing');
+
+        // 2. Animate out current text
+        const currentTextWrapper = textContainer.querySelector('.slide-text-wrapper');
+        const outClass = direction === 'next' ? 'text-slide-out-up' : 'text-slide-out-down';
+        currentTextWrapper.className = `slide-text-wrapper ${outClass}`;
+
+        // 3. Create new text element
+        const nextSlide = slides[nextIndex];
+        const newTextWrapper = document.createElement('div');
+        newTextWrapper.className = 'slide-text-wrapper';
+        
+        const inClass = direction === 'next' ? 'text-slide-in-up' : 'text-slide-in-down';
+        newTextWrapper.classList.add(inClass);
+
+        newTextWrapper.innerHTML = `
+          <span class="badge badge-accent">${nextSlide.badge}</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">${nextSlide.title}</h2>
+          <p class="award-quote">${nextSlide.quote}</p>
+          <p>${nextSlide.desc}</p>
+        `;
+
+        // Append new text element
+        textContainer.appendChild(newTextWrapper);
+
+        // 4. Update image source after a short fade delay
+        setTimeout(() => {
+          imgElement.src = nextSlide.image;
+          imgElement.alt = nextSlide.alt;
+          cardElement.classList.remove('changing');
+        }, 150);
+
+        // 5. Clean up old text element after animation finishes (450ms)
+        setTimeout(() => {
+          currentTextWrapper.remove();
+          newTextWrapper.className = 'slide-text-wrapper active-slide-text';
+          currentIndex = nextIndex;
+          updateDots();
+          isTransitioning = false;
+        }, 450);
+      }
+
+      prevBtn.addEventListener('click', () => {
+        let nextIndex = currentIndex - 1;
+        if (nextIndex < 0) nextIndex = slides.length - 1;
+        transitionSlide(nextIndex, 'prev');
+      });
+
+      nextBtn.addEventListener('click', () => {
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= slides.length) nextIndex = 0;
+        transitionSlide(nextIndex, 'next');
+      });
+
+      // Dots navigation
+      dotsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dot')) {
+          const targetIndex = parseInt(e.target.getAttribute('data-index'));
+          if (targetIndex === currentIndex) return;
+          const direction = targetIndex > currentIndex ? 'next' : 'prev';
+          transitionSlide(targetIndex, direction);
+        }
+      });
+    });
+  </script>
+
   <!-- --- STAT COUNTERS --- -->
   <section class="stats-section section-padding">
     <div class="container">
@@ -233,7 +398,7 @@
     <div class="container text-center">
       <span class="badge badge-primary">Hyperlocal Domain</span>
       <h2 class="section-title">Our Key <span>Localities & Sectors</span></h2>
-      <p class="section-desc">We operate intensively within Faridabad, showcasing prime residential and commercial land inventories in high-appreciation zones.</p>
+      <p class="section-desc">We operate intensively across NCR and key investment destinations, showcasing prime residential, commercial, and industrial land inventories in high-appreciation zones.</p>
       
       <div class="chips-container">
         <div class="locality-chip">Sector 85 (Faridabad)</div>
@@ -244,6 +409,15 @@
         <div class="locality-chip">Sector 79 Plots</div>
         <div class="locality-chip">Sector 86 Commercials</div>
         <div class="locality-chip">NCR Pypass Link Belt</div>
+        <div class="locality-chip">Gurugram</div>
+        <div class="locality-chip">Sohna</div>
+        <div class="locality-chip">Prithla</div>
+        <div class="locality-chip">Palwal</div>
+        <div class="locality-chip">Vrindavan</div>
+        <div class="locality-chip">Ajeetgarh</div>
+        <div class="locality-chip">Khatu Shyam</div>
+        <div class="locality-chip">Garhmukteshwar</div>
+        <div class="locality-chip">Dholera(GUJ)</div>
       </div>
     </div>
   </section>
