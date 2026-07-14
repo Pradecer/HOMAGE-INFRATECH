@@ -366,6 +366,37 @@
           transitionSlide(targetIndex, direction);
         }
       });
+
+      // Touch swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      const handleSwipe = () => {
+        const threshold = 50; // minimum pixels to swipe
+        if (touchEndX < touchStartX - threshold) {
+          // Swipe Left -> Next slide
+          let nextIndex = currentIndex + 1;
+          if (nextIndex >= slides.length) nextIndex = 0;
+          transitionSlide(nextIndex, 'next');
+        } else if (touchEndX > touchStartX + threshold) {
+          // Swipe Right -> Prev slide
+          let nextIndex = currentIndex - 1;
+          if (nextIndex < 0) nextIndex = slides.length - 1;
+          transitionSlide(nextIndex, 'prev');
+        }
+      };
+
+      [cardElement, textContainer].forEach(el => {
+        if (!el) return;
+        el.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        el.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+      });
     });
   </script>
 

@@ -385,3 +385,10 @@
   border-radius: 3px;
 }
 
+@media (max-width: 768px) {
+  .f-carousel-btn {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+

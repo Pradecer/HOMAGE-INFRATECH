@@ -3,6 +3,27 @@
    Est. 2005 | Faridabad, Haryana
    ========================================================================== */
 
+/**
+ * Centralized function to resolve relative path prefix depending on current page depth.
+ */
+function getPathPrefix() {
+  const pathname = window.location.pathname;
+  if (pathname.includes('/faridabad/sector-')) {
+    return '../../';
+  } else if (
+    pathname.includes('/about-us/') ||
+    pathname.includes('/contact-us/') ||
+    pathname.includes('/gallery/') ||
+    pathname.includes('/projects/') ||
+    pathname.includes('/testimonials/') ||
+    pathname.includes('/faridabad/')
+  ) {
+    return '../';
+  }
+  return '';
+}
+window.getPathPrefix = getPathPrefix;
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initStickyHeader();
@@ -262,11 +283,7 @@ function initOnloadPopup() {
     }
     
     // Check path prefix to resolve logo.png path
-    let pathPrefix = '';
-    const pathname = window.location.pathname;
-    if (pathname.includes('/about-us/') || pathname.includes('/projects/') || pathname.includes('/gallery/')) {
-      pathPrefix = '../';
-    }
+    const pathPrefix = getPathPrefix();
     
     // Construct HTML
     const popupHTML = `
@@ -519,20 +536,7 @@ function initNavSearch() {
     return '';
   }
  
-  function getPagePrefix() {
-    let prefix = '';
-    if (window.location.pathname.includes('/faridabad/sector-')) {
-      prefix = '../../';
-    } else if (window.location.pathname.includes('/about-us/') ||
-               window.location.pathname.includes('/contact-us/') ||
-               window.location.pathname.includes('/gallery/') ||
-               window.location.pathname.includes('/projects/') ||
-               window.location.pathname.includes('/testimonials/') ||
-               window.location.pathname.includes('/faridabad/')) {
-      prefix = '../';
-    }
-    return prefix;
-  }
+  // uses getPathPrefix()
 
   searchInputs.forEach(input => {
     const wrap = input.closest('.nav-search-wrap');
@@ -572,7 +576,7 @@ function initNavSearch() {
             <div class="result-loc">${getLocText(match.url)}</div>
           `;
           item.addEventListener('click', () => {
-            const prefix = getPagePrefix();
+            const prefix = getPathPrefix();
             window.location.href = prefix + match.url;
           });
           resultsContainer.appendChild(item);
@@ -623,7 +627,7 @@ function initNavSearch() {
       } else if (e.key === 'Enter') {
         const query = input.value.trim();
         if (query) {
-          const prefix = getPagePrefix();
+          const prefix = getPathPrefix();
           if (activeIndex >= 0 && activeIndex < currentMatches.length) {
             window.location.href = prefix + currentMatches[activeIndex].url;
           } else if (currentMatches.length > 0) {
@@ -643,7 +647,7 @@ function initNavSearch() {
       btn.addEventListener('click', () => {
         const query = input.value.trim();
         if (query) {
-          const prefix = getPagePrefix();
+          const prefix = getPathPrefix();
           if (currentMatches.length > 0) {
             window.location.href = prefix + currentMatches[0].url;
           } else {
@@ -662,13 +666,7 @@ function initNavSearch() {
  */
 function openBrochureModal(projectName, brochureFilename) {
   // Check path prefix to resolve logo.png and brochure download path
-  let pathPrefix = '';
-  const pathname = window.location.pathname;
-  if (pathname.includes('/sector-75/') || pathname.includes('/sector-76/') || pathname.includes('/sector-77/')) {
-    pathPrefix = '../../';
-  } else if (pathname.includes('/about-us/') || pathname.includes('/projects/') || pathname.includes('/gallery/') || pathname.includes('/testimonials/') || pathname.includes('/contact-us/') || pathname.includes('/faridabad/')) {
-    pathPrefix = '../';
-  }
+  const pathPrefix = getPathPrefix();
 
   // If the user has already submitted an enquiry, bypass the modal and download directly
   if (localStorage.getItem('homage_enquiry_submitted') === 'true') {
@@ -867,13 +865,7 @@ function initPriceLinks() {
         }
 
         // Get path prefix
-        let pathPrefix = '';
-        const pathname = window.location.pathname;
-        if (pathname.includes('/faridabad/sector-')) {
-          pathPrefix = '../../';
-        } else if (pathname.includes('/about-us/') || pathname.includes('/projects/') || pathname.includes('/gallery/') || pathname.includes('/testimonials/') || pathname.includes('/contact-us/') || pathname.includes('/faridabad/')) {
-          pathPrefix = '../';
-        }
+        const pathPrefix = getPathPrefix();
 
         const contactUrl = `${pathPrefix}contact-us/index.html?project=${encodeURIComponent(projectSlug)}&interest=${interest}`;
 
@@ -954,6 +946,32 @@ function initCardCarousels() {
       currentIndex = (currentIndex + 1) % images.length;
       updateCarousel();
     });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const threshold = 40; // minimum pixels to swipe
+      if (touchEndX < touchStartX - threshold) {
+        // Swipe Left -> Next
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
+      } else if (touchEndX > touchStartX + threshold) {
+        // Swipe Right -> Prev
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel();
+      }
+    }
   });
 }
 
