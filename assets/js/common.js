@@ -502,6 +502,33 @@ function initNavSearch() {
     { name: "SPR - Imperial Estate", url: "faridabad/sector-82/index.html#spr-imperial-estate", keywords: ["spr", "imperial", "estate", "imperial estate", "sector 82"] },
     { name: "BPTP N Block Plot & SCO", url: "faridabad/sector-82/index.html#bptp-n-block-plot-sco", keywords: ["bptp", "n block", "block n", "sco", "sector 82"] },
 
+    // Sector 83 Projects
+    { name: "Godrej Retreat", url: "faridabad/sector-83/index.html#godrej-retreat", keywords: ["godrej", "retreat", "godrej retreat", "sector 83", "plots"] },
+    { name: "BPTP LM Block Plot", url: "faridabad/sector-83/index.html#bptp-lm-block", keywords: ["bptp", "lm block", "lm block plot", "sector 83"] },
+    { name: "BPTP M Block Plot (Sector 83)", url: "faridabad/sector-83/index.html#bptp-m-block-83", keywords: ["bptp", "m block", "m block plot", "sector 83"] },
+    { name: "Adore Arpnaam", url: "faridabad/sector-83/index.html#adore-arpnaam", keywords: ["adore", "arpnaam", "adore arpnaam", "sector 83"] },
+
+    // Sector 84 Projects
+    { name: "BPTP J Block Plot", url: "faridabad/sector-84/index.html#bptp-j-block", keywords: ["bptp", "j block", "j block plot", "sector 84"] },
+    { name: "BPTP K Block Plot", url: "faridabad/sector-84/index.html#bptp-k-block", keywords: ["bptp", "k block", "k block plot", "sector 84"] },
+    { name: "BPTP L Block Plot", url: "faridabad/sector-84/index.html#bptp-l-block", keywords: ["bptp", "l block", "l block plot", "sector 84"] },
+    { name: "BPTP M Block Plot (Sector 84)", url: "faridabad/sector-84/index.html#bptp-m-block-84", keywords: ["bptp", "m block", "m block plot", "sector 84"] },
+    { name: "BPTP District 84 (B Block)", url: "faridabad/sector-84/index.html#bptp-district-84-b", keywords: ["bptp", "district 84", "b block", "sector 84"] },
+    { name: "Puri Pratham", url: "faridabad/sector-84/index.html#puri-pratham", keywords: ["puri", "pratham", "puri pratham", "sector 84"] },
+    { name: "BPTP Elite Premium", url: "faridabad/sector-84/index.html#bptp-elite-premium", keywords: ["bptp", "elite", "premium", "elite premium", "sector 84"] },
+    { name: "Adore Legend 1", url: "faridabad/sector-84/index.html#adore-legend-1", keywords: ["adore", "legend", "adore legend 1", "sector 84"] },
+    { name: "Maulshree Heights (Arttech)", url: "faridabad/sector-84/index.html#maulshree-heights", keywords: ["maulshree", "heights", "maulshree heights", "arttech", "sector 84"] },
+
+    // Sector 85 Projects
+    { name: "BPTP A Block Plots", url: "faridabad/sector-85/index.html#bptp-a-block", keywords: ["bptp", "a block", "a block plots", "sector 85"] },
+    { name: "BPTP B Block Plots", url: "faridabad/sector-85/index.html#bptp-b-block", keywords: ["bptp", "b block", "b block plots", "sector 85"] },
+    { name: "BPTP C Block Plots", url: "faridabad/sector-85/index.html#bptp-c-block", keywords: ["bptp", "c block", "c block plots", "sector 85"] },
+    { name: "BPTP D Block Plots", url: "faridabad/sector-85/index.html#bptp-d-block", keywords: ["bptp", "d block", "d block plots", "sector 85"] },
+    { name: "BPTP E Block Plots", url: "faridabad/sector-85/index.html#bptp-e-block", keywords: ["bptp", "e block", "e block plots", "sector 85"] },
+    { name: "Adore Happy Home Grand", url: "faridabad/sector-85/index.html#adore-happy-home-grand", keywords: ["adore", "happy home", "happy home grand", "sector 85"] },
+    { name: "S3 Green Avenue", url: "faridabad/sector-85/index.html#s3-green-avenue", keywords: ["s3", "green avenue", "green", "avenue", "sector 85"] },
+    { name: "Amolik Sankalp", url: "faridabad/sector-85/index.html#amolik-sankalp", keywords: ["amolik", "sankalp", "amolik sankalp", "sector 85"] },
+
     { name: "Gurugram Plots", url: "projects/gurugram.html", keywords: ["gurugram", "dwarka expressway", "dwarka", "gurgaon", "dwarka plots"] },
     { name: "Sohna Plots", url: "projects/sohna.html", keywords: ["sohna", "sohna plots", "sohna road"] },
     { name: "Prithla Plots", url: "projects/prithla.html", keywords: ["prithla", "prithla plots", "industrial plots"] },
@@ -524,6 +551,9 @@ function initNavSearch() {
     if (url.includes('sector-80')) return 'Sector 80, Faridabad';
     if (url.includes('sector-81')) return 'Sector 81, Faridabad';
     if (url.includes('sector-82')) return 'Sector 82, Faridabad';
+    if (url.includes('sector-83')) return 'Sector 83, Faridabad';
+    if (url.includes('sector-84')) return 'Sector 84, Faridabad';
+    if (url.includes('sector-85')) return 'Sector 85, Faridabad';
     if (url.includes('gurugram')) return 'Dwarka Expressway, Gurugram';
     if (url.includes('sohna')) return 'Sohna, Gurugram';
     if (url.includes('prithla')) return 'Prithla, Faridabad';
