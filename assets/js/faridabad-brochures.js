@@ -29,6 +29,29 @@ const FARIDABAD_BROCHURE_CATALOG = {
   'palm-residency':     { label: 'Palm Residency',           file: '../../brochure/palm residency.pdf' },
   'spr-imperial-estate':{ label: 'SPR Imperial Estate',      file: '../../brochure/spr-inperial estate.pdf' },
 
+  /* ---- Newly Added Brochures ---- */
+  'adore-arpnaam':             { label: 'Adore Arpnaam',             file: '../../brochure/Adore Arpnaam sector 83.pdf' },
+  'adore-broadway':            { label: 'Adore Broadway',            file: '../../brochure/Adore Broadway sector 78.pdf' },
+  'amolik-plaza-81':           { label: 'Amolik Plaza 81',           file: '../../brochure/Amolik Plaza 81 sector 81.pdf' },
+  'ansal-crown':               { label: 'Ansal Crown',               file: '../../brochure/Ansal Crown sector 80.pdf' },
+  'bptp-discovery-park-phase-1': { label: 'BPTP Discovery Park Phase 1', file: '../../brochure/BPTP Discovery Park Phase 1 (2&3 BHK) sector 80.pdf' },
+  'bptp-elite-premium':        { label: 'BPTP Elite Premium',        file: '../../brochure/BPTP Elite Premium sector 84.pdf' },
+  'bptp-sky-nest':             { label: 'BPTP Sky Nest (3&4 BHK)',   file: '../../brochure/BPTP Sky Nest (3&4 BHK) sector 80.pdf' },
+  'capital-sco':               { label: 'Capital SCO',               file: '../../brochure/Capital SCO sector 79.pdf' },
+  'godrej-retreat':            { label: 'Godrej Retreat',            file: '../../brochure/Godrej Retreat sector 83.pdf' },
+  'habitat-78':                { label: 'Habitat 2/3 BHK',           file: '../../brochure/Habitat 2 3 BHK sector 78.pdf' },
+  'habitat-residences':        { label: 'Habitat Residences',        file: '../../brochure/Habitat Residences sector 78.pdf' },
+  'habitat-sector-78':         { label: 'Habitat Sector 78',         file: '../../brochure/Habitat Sector 78.pdf' },
+  'hi-fun-mall':               { label: 'Hi Fun Mall',               file: '../../brochure/Hi Fun Mall sector 79.pdf' },
+  'omaxe-royal-residency':     { label: 'OMAXE Royal Residency',     file: '../../brochure/OMAXE Royal Residency sector 79.pdf' },
+  'omaxe-spa-village':         { label: 'OMAXE Spa Village',         file: '../../brochure/OMAXE Spa Village sector 78.pdf' },
+  'omaxe-sun':                 { label: 'OMAXE Sun',                 file: '../../brochure/OMAXE Sun sector 79.pdf' },
+  'puri-81-business-hub':      { label: 'Puri 81 Business Hub',      file: '../../brochure/Puri 81 Business Hub sector 81.pdf' },
+  'puri-81-high-street-mall':  { label: 'Puri 81 High Street Mall',  file: '../../brochure/Puri 81 High Street Mall sector 81.pdf' },
+  'puri-pratham':              { label: 'Puri Pratham',              file: '../../brochure/Puri Pratham sector 84.pdf' },
+  'universal-sco-auric':       { label: 'Universal SCO (Auric)',     file: '../../brochure/Universal SCO (Auric) sector 79.pdf' },
+  'vipul-plaza':               { label: 'Vipul Plaza',               file: '../../brochure/Vipul Plaza sector 81.pdf' },
+
   /* ---- Group fallback ---- */
   'faridabad': [
     { label: 'BPTP Floors',          file: '../../brochure/bptp floors 1.pdf' },
