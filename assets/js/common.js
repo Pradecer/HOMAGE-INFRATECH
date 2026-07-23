@@ -45,15 +45,29 @@ function initNavbar() {
   
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
+      const isActive = hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
       
       // Prevent scrolling when mobile menu is open
-      if (navMenu.classList.contains('active')) {
+      if (isActive) {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = '';
         // Close all mobile dropdowns when mobile menu closes
+        document.querySelectorAll('.nav-dropdown-wrap.active, .nav-submenu-wrap.active').forEach(wrap => {
+          wrap.classList.remove('active');
+        });
+      }
+    });
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
         document.querySelectorAll('.nav-dropdown-wrap.active, .nav-submenu-wrap.active').forEach(wrap => {
           wrap.classList.remove('active');
         });
@@ -66,6 +80,7 @@ function initNavbar() {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
         // Close all mobile dropdowns
         document.querySelectorAll('.nav-dropdown-wrap.active, .nav-submenu-wrap.active').forEach(wrap => {
@@ -285,9 +300,9 @@ function initOnloadPopup() {
     // Check path prefix to resolve logo.png path
     const pathPrefix = getPathPrefix();
     
-    // Construct HTML
+    // Construct HTML with ARIA role and dialog attributes
     const popupHTML = `
-      <div id="onload-popup" class="modal">
+      <div id="onload-popup" class="modal" role="dialog" aria-modal="true" aria-labelledby="onload-popup-title">
         <div class="modal-content" style="max-width: 420px; overflow: hidden; border-radius: var(--border-radius-lg);">
           <button class="modal-close" id="close-onload-popup" aria-label="Close popup">
             <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
@@ -300,7 +315,7 @@ function initOnloadPopup() {
                 <span style="font-size: 0.65rem; font-weight: 600; color: var(--accent-color); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px;">INFRATECH</span>
               </div>
             </div>
-            <h3 style="color: var(--primary-dark); font-weight: 700; font-size: 1.4rem;">Exclusive Plot Deals</h3>
+            <h3 id="onload-popup-title" style="color: var(--primary-dark); font-weight: 700; font-size: 1.4rem;">Exclusive Plot Deals</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Enquire today to receive pricing layout brochures.</p>
           </div>
           <div class="modal-body" style="padding: 10px 30px 35px 30px;">
@@ -344,8 +359,16 @@ function initOnloadPopup() {
     const closePopup = () => {
       popup.classList.remove('active');
       document.body.style.overflow = '';
+      document.removeEventListener('keydown', handlePopupEsc);
       setTimeout(() => popup.remove(), 400);
     };
+
+    const handlePopupEsc = (e) => {
+      if (e.key === 'Escape') {
+        closePopup();
+      }
+    };
+    document.addEventListener('keydown', handlePopupEsc);
     
     if (closeBtn) {
       closeBtn.addEventListener('click', closePopup);

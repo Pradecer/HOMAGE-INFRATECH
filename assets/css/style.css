@@ -47,6 +47,11 @@
   
   --container-max-width: 1200px;
   --header-height: 80px;
+  
+  /* Modern Mobile-First Tokens */
+  --font-size-title-fluid: clamp(1.75rem, 4vw + 0.8rem, 2.5rem);
+  --font-size-hero-fluid: clamp(2rem, 5vw + 1rem, 3.5rem);
+  --header-height-mobile: 70px;
 }
 
 /* --- Base & Resets --- */
@@ -597,10 +602,12 @@ nav {
 .hamburger {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  width: 26px;
-  height: 18px;
+  justify-content: space-around;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
   background: transparent;
+  border: none;
   cursor: pointer;
   z-index: 1010;
 }
@@ -1007,10 +1014,10 @@ nav {
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 60px 0;
+    padding: clamp(2.5rem, 6vw, 3.75rem) 0;
   }
   .section-title {
-    font-size: 1.85rem;
+    font-size: var(--font-size-title-fluid);
   }
   .header {
     height: 70px;
@@ -1036,15 +1043,17 @@ nav {
     top: 70px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    height: calc(100vh - 70px); /* Fallback for older browsers */
     background-color: var(--bg-dark);
     flex-direction: column;
     align-items: flex-start;
-    padding: 40px 30px;
-    gap: 20px;
+    padding: 30px 24px calc(40px + env(safe-area-inset-bottom)) 24px;
+    gap: 16px;
     transition: var(--transition-smooth);
     z-index: 1000;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   .nav-menu.active {
@@ -1054,7 +1063,9 @@ nav {
   .nav-link {
     font-size: 1.15rem;
     width: 100%;
-    display: block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     padding: 8px 0;
   }
 
@@ -1089,10 +1100,12 @@ nav {
 
   .nav-dropdown-menu a, .nav-submenu a, .nav-submenu-title {
     text-align: left !important;
-    padding: 8px 10px !important;
+    padding: 10px 12px !important;
+    min-height: 44px;
+    display: flex !important;
+    align-items: center;
     font-size: 1.05rem !important;
     width: 100%;
-    display: block;
     color: var(--text-white-muted);
   }
 
@@ -1134,12 +1147,12 @@ nav {
 
 @media (max-width: 480px) {
   .floating-actions {
-    bottom: 20px;
-    right: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    right: calc(20px + env(safe-area-inset-right));
   }
   .floating-btn {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
   }
   .floating-btn svg {
     width: 20px;
