@@ -78,6 +78,26 @@ const FARIDABAD_BROCHURE_CATALOG = {
   'vipul-plaza':               { label: 'Vipul Plaza',               file: '../../brochure/Vipul Plaza sector 81.pdf' },
   'world-street-sco':          { label: 'World Street SCO',          file: '../../brochure/World Street SCO sector 79.pdf' },
 
+  /* ---- Sector 72-73 Residential ---- */
+  'adore-prime-1':             { label: 'Adore Prime 1',             file: '../../brochure/Adore Prima Se 72 & 73.pdf' },
+  'adore-prime-2':             { label: 'Adore Prime 2',             file: '../../brochure/Adore Prima Se 72 & 73.pdf' },
+
+  /* ---- Sector 97-98 ---- */
+  'adore-smart-city':          { label: 'Adore Smart City 1 & 2',    file: '../../brochure/Adore Smart city 1 and 2 sec 97.pdf' },
+  'amolik-blossom-wood':       { label: 'Amolik Blossom Wood',       file: '../../brochure/Amolik blossom woods sec 97.pdf' },
+  'emerald-maple-floors':      { label: 'Emerald Maple Floors',      file: '../../brochure/Emerald Maple sec- 97 (1).pdf' },
+  'anushree-green':            { label: 'Anushree Green',            file: '../../brochure/Anushree Green sec 97 (4).pdf' },
+  'omaxe-city':                { label: 'OMAXE City',                file: '../../brochure/Omaxe City sec 97 (1).pdf' },
+  'ladimora':                  { label: 'Ladimora',                  file: '../../brochure/La Dimora Sec 97.pdf' },
+  'soha-olive-town':           { label: 'Soha Olive Town',           file: '../../brochure/Soha_Olive_Town sec 98 (1).pdf' },
+  'neal-city':                 { label: 'Neal City',                 file: '../../brochure/Neal City sec 98.pdf' },
+  'amolik-asterwood':          { label: 'Amolik Asterwood',          file: '../../brochure/Amolik asterwood sec 98.pdf' },
+  'mansha-oaks':               { label: 'Mansha Oaks',               file: '../../brochure/Mansha Oaks sec 98.pdf' },
+  'olive-homes':               { label: 'Olive Homes',               file: '../../brochure/OLIVE-HOMES- SEC 98.pdf' },
+
+  /* ---- Sector 104 ---- */
+  'adore-legend-3':            { label: 'Adore Legend 3',            file: '../../brochure/Adore Legend 3 Sec 104.pdf' },
+
   /* ---- Group fallback ---- */
   'faridabad': [
     { label: 'BPTP Floors',          file: '../../brochure/bptp floors 1.pdf' },

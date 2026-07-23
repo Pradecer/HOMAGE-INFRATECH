@@ -435,6 +435,10 @@ function initNavSearch() {
   const searchInputs = document.querySelectorAll('.nav-search-input');
   
   const allProjects = [
+    // Sector 72-73 Residential Projects
+    { name: "Adore Prime 1", url: "faridabad/sector-72-73-residential/index.html#adore-prime-1", keywords: ["adore", "prime", "prime 1", "adore prime 1", "sector 72", "sector 73", "sector 72-73"] },
+    { name: "Adore Prime 2", url: "faridabad/sector-72-73-residential/index.html#adore-prime-2", keywords: ["adore", "prime", "prime 2", "adore prime 2", "sector 72", "sector 73", "sector 72-73"] },
+
     { name: "BPTP Resort", url: "faridabad/sector-75/index.html#bptp-resort", keywords: ["resort", "bptp resort", "sector 75", "luxury"] },
     { name: "Adore Pride", url: "faridabad/sector-75/index.html#adore-pride", keywords: ["adore", "adore pride", "pride", "sector 75"] },
     { name: "Terra Lavinium", url: "faridabad/sector-75/index.html#terra-lavinium", keywords: ["terra", "lavinium", "terra lavinium", "sector 75"] },
@@ -469,11 +473,11 @@ function initNavSearch() {
     { name: "Adore Broadway", url: "faridabad/sector-78/index.html#adore-broadway", keywords: ["adore", "broadway", "adore broadway", "sector 78"] },
     
     // Sector 79 Projects
-    { name: "World Street SCO", url: "faridabad/sector-79/index.html#world-street-sco", keywords: ["world street", "sco", "world street sco", "sector 79"] },
-    { name: "OMAXE Sun", url: "faridabad/sector-79/index.html#omaxe-sun", keywords: ["omaxe", "sun", "omaxe sun", "sector 79"] },
-    { name: "Hi Fun Mall", url: "faridabad/sector-79/index.html#hi-fun-mall", keywords: ["hi fun", "mall", "hi fun mall", "sector 79"] },
-    { name: "Universal SCO (Auric)", url: "faridabad/sector-79/index.html#universal-sco-auric", keywords: ["universal", "sco", "auric", "sector 79"] },
-    { name: "Capital SCO", url: "faridabad/sector-79/index.html#capital-sco", keywords: ["capital", "sco", "capital sco", "sector 79"] },
+    { name: "World Street SCO", url: "faridabad/sector-79-commercial/index.html#world-street-sco", keywords: ["world street", "sco", "world street sco", "sector 79"] },
+    { name: "OMAXE Sun", url: "faridabad/sector-79-commercial/index.html#omaxe-sun", keywords: ["omaxe", "sun", "omaxe sun", "sector 79"] },
+    { name: "Hi Fun Mall", url: "faridabad/sector-79-commercial/index.html#hi-fun-mall", keywords: ["hi fun", "mall", "hi fun mall", "sector 79"] },
+    { name: "Universal SCO (Auric)", url: "faridabad/sector-79-commercial/index.html#universal-sco-auric", keywords: ["universal", "sco", "auric", "sector 79"] },
+    { name: "Capital SCO", url: "faridabad/sector-79-commercial/index.html#capital-sco", keywords: ["capital", "sco", "capital sco", "sector 79"] },
 
     // Sector 80 Projects
     { name: "BPTP Sky Nest (3&4 BHK)", url: "faridabad/sector-80/index.html#bptp-sky-nest", keywords: ["bptp", "sky nest", "sky", "nest", "sector 80"] },
@@ -484,19 +488,19 @@ function initNavSearch() {
 
     // Sector 81 Projects
     { name: "Puri Anand Villa", url: "faridabad/sector-81/index.html#puri-anand-villa", keywords: ["puri", "anand", "villa", "anand villa", "sector 81"] },
-    { name: "Puri 81 High Street Mall", url: "faridabad/sector-81/index.html#puri-81-high-street-mall", keywords: ["puri", "high street", "mall", "puri 81", "sector 81"] },
-    { name: "Puri 81 Business Hub", url: "faridabad/sector-81/index.html#puri-81-business-hub", keywords: ["puri", "business", "hub", "business hub", "sector 81"] },
+    { name: "Puri 81 High Street Mall", url: "faridabad/sector-81-commercial/index.html#puri-81-high-street-mall", keywords: ["puri", "high street", "mall", "puri 81", "sector 81"] },
+    { name: "Puri 81 Business Hub", url: "faridabad/sector-81-commercial/index.html#puri-81-business-hub", keywords: ["puri", "business", "hub", "business hub", "sector 81"] },
     { name: "BPTP Eden-Estate Plot", url: "faridabad/sector-81/index.html#bptp-eden-estate-plot", keywords: ["bptp", "eden", "estate", "eden estate", "sector 81"] },
     { name: "Puri VIP Floor", url: "faridabad/sector-81/index.html#puri-vip-floor", keywords: ["puri", "vip", "floor", "vip floor", "sector 81"] },
     { name: "BPTP Park 81", url: "faridabad/sector-81/index.html#bptp-park-81", keywords: ["bptp", "park", "park 81", "sector 81"] },
     { name: "BPTP District 81 (Block B)", url: "faridabad/sector-81/index.html#bptp-district-81-block-b", keywords: ["bptp", "district", "district 81", "block b", "sector 81"] },
     { name: "BPTP District 81 (Block C)", url: "faridabad/sector-81/index.html#bptp-district-81-block-c", keywords: ["bptp", "district", "district 81", "block c", "sector 81"] },
-    { name: "Vipul Plaza", url: "faridabad/sector-81/index.html#vipul-plaza", keywords: ["vipul", "plaza", "vipul plaza", "sector 81"] },
-    { name: "Amolik Plaza 81", url: "faridabad/sector-81/index.html#amolik-plaza-81", keywords: ["amolik", "plaza", "amolik plaza 81", "sector 81"] },
+    { name: "Vipul Plaza", url: "faridabad/sector-81-commercial/index.html#vipul-plaza", keywords: ["vipul", "plaza", "vipul plaza", "sector 81"] },
+    { name: "Amolik Plaza 81", url: "faridabad/sector-81-commercial/index.html#amolik-plaza-81", keywords: ["amolik", "plaza", "amolik plaza 81", "sector 81"] },
 
     // Sector 82 Projects
-    { name: "Amolik Plaza 82", url: "faridabad/sector-82/index.html#amolik-plaza-82", keywords: ["amolik", "plaza", "amolik plaza 82", "sector 82"] },
-    { name: "Mansha Vega Street", url: "faridabad/sector-82/index.html#mansha-vega-street", keywords: ["mansha", "vega", "street", "vega street", "sector 82"] },
+    { name: "Amolik Plaza 82", url: "faridabad/sector-82-commercial/index.html#amolik-plaza-82", keywords: ["amolik", "plaza", "amolik plaza 82", "sector 82"] },
+    { name: "Mansha Vega Street", url: "faridabad/sector-82-commercial/index.html#mansha-vega-street", keywords: ["mansha", "vega", "street", "vega street", "sector 82"] },
     { name: "Florida-Auric", url: "faridabad/sector-82/index.html#florida-auric", keywords: ["florida", "auric", "florida auric", "sector 82"] },
     { name: "Puri Pranayam", url: "faridabad/sector-82/index.html#puri-pranayam", keywords: ["puri", "pranayam", "puri pranayam", "sector 82"] },
     { name: "SPR - Imperial Estate", url: "faridabad/sector-82/index.html#spr-imperial-estate", keywords: ["spr", "imperial", "estate", "imperial estate", "sector 82"] },
@@ -518,6 +522,9 @@ function initNavSearch() {
     { name: "BPTP Elite Premium", url: "faridabad/sector-84/index.html#bptp-elite-premium", keywords: ["bptp", "elite", "premium", "elite premium", "sector 84"] },
     { name: "Adore Legend 1", url: "faridabad/sector-84/index.html#adore-legend-1", keywords: ["adore", "legend", "adore legend 1", "sector 84"] },
     { name: "Maulshree Heights (Arttech)", url: "faridabad/sector-84/index.html#maulshree-heights", keywords: ["maulshree", "heights", "maulshree heights", "arttech", "sector 84"] },
+
+    // Sector 84A Projects
+    { name: "Coral Park (New Stone)", url: "faridabad/sector-84a/index.html#coral-park", keywords: ["coral", "park", "coral park", "new stone", "sector 84a", "plots"] },
 
     // Sector 85 Projects
     { name: "BPTP A Block Plots", url: "faridabad/sector-85/index.html#bptp-a-block", keywords: ["bptp", "a block", "a block plots", "sector 85"] },
@@ -563,6 +570,48 @@ function initNavSearch() {
     { name: "Piyush Heights", url: "faridabad/sector-89/index.html#piyush-heights", keywords: ["piyush", "heights", "piyush heights", "sector 89"] },
     { name: "Adore Samridhi", url: "faridabad/sector-89/index.html#adore-samridhi", keywords: ["adore", "samridhi", "adore samridhi", "sector 89"] },
     { name: "G Block BPTP (Sector 89)", url: "faridabad/sector-89/index.html#bptp-block-g-sec-89", keywords: ["g block", "bptp g block", "bptp", "sector 89"] },
+
+    // Sector 97-98 Projects
+    { name: "Amolik Blossom Wood", url: "faridabad/sector-97-98/index.html#amolik-blossom-wood", keywords: ["amolik", "blossom", "wood", "blossom wood", "sector 97", "sector 97-98"] },
+    { name: "Adore Smart City 1 & 2", url: "faridabad/sector-97-98/index.html#adore-smart-city", keywords: ["adore", "smart city", "smart city 1", "smart city 2", "sector 97", "sector 97-98"] },
+    { name: "Emerald Maple Floors", url: "faridabad/sector-97-98/index.html#emerald-maple-floors", keywords: ["emerald", "maple", "floors", "maple floors", "sector 97", "sector 97-98"] },
+    { name: "Anushree Green", url: "faridabad/sector-97-98/index.html#anushree-green", keywords: ["anushree", "green", "anushree green", "sector 97", "sector 97-98"] },
+    { name: "OMAXE City (Sector 97)", url: "faridabad/sector-97-98/index.html#omaxe-city", keywords: ["omaxe", "city", "omaxe city", "sector 97", "sector 97-98"] },
+    { name: "Amolik Concordia", url: "faridabad/sector-97-98/index.html#amolik-concordia", keywords: ["amolik", "concordia", "amolik concordia", "sector 97", "sector 97-98"] },
+    { name: "Ladimora", url: "faridabad/sector-97-98/index.html#ladimora", keywords: ["ladimora", "sector 97", "sector 97-98"] },
+    { name: "Soha Olive Town", url: "faridabad/sector-97-98/index.html#soha-olive-town", keywords: ["soha", "olive", "town", "olive town", "sector 98", "sector 97-98"] },
+    { name: "Neal City", url: "faridabad/sector-97-98/index.html#neal-city", keywords: ["neal", "city", "neal city", "sector 98", "sector 97-98"] },
+    { name: "Amolik Asterwood", url: "faridabad/sector-97-98/index.html#amolik-asterwood", keywords: ["amolik", "asterwood", "amolik asterwood", "sector 98", "sector 97-98"] },
+    { name: "Mansha Oaks", url: "faridabad/sector-97-98/index.html#mansha-oaks", keywords: ["mansha", "oaks", "mansha oaks", "sector 98", "sector 97-98"] },
+    { name: "Olive Homes", url: "faridabad/sector-97-98/index.html#olive-homes", keywords: ["olive", "homes", "olive homes", "sector 98", "sector 97-98"] },
+
+    // Sector 104 Projects
+    { name: "Adore Legend 3", url: "faridabad/sector-104/index.html#adore-legend-3", keywords: ["adore", "legend", "adore legend 3", "sector 104"] },
+
+    // Sector 106 Projects
+    { name: "Bhumika Small Plots & Floors", url: "faridabad/sector-106/index.html#bhumika-small-plots-floors", keywords: ["bhumika", "small plots", "bhumika plots", "floors", "sector 106"] },
+
+    // Sector 107 Projects
+    { name: "Anushree Plots", url: "faridabad/sector-107/index.html#anushree-plots", keywords: ["anushree", "plots", "anushree plots", "sector 107"] },
+
+    // Sector 110 Projects
+    { name: "Navraj Sector 110", url: "faridabad/sector-110/index.html#navraj-sec110", keywords: ["navraj", "navraj 110", "sector 110"] },
+    { name: "Mansha Orchid", url: "faridabad/sector-110/index.html#mansha-orchid", keywords: ["mansha", "orchid", "mansha orchid", "sector 110"] },
+
+    // Sector 113-114 Projects
+    { name: "Bhumika Plots (General Township)", url: "faridabad/sector-113-114/index.html#bhumika-plots-general", keywords: ["bhumika", "township", "general township", "bhumika plots", "sector 113", "sector 114"] },
+    { name: "Bhumika NILP Plots", url: "faridabad/sector-113-114/index.html#bhumika-nilp-plots", keywords: ["bhumika", "nilp", "nilp plots", "bhumika nilp", "sector 113", "sector 114"] },
+
+    // Sector 119 Projects
+    { name: "Adore Affordable (Sector 119)", url: "faridabad/sector-119/index.html#adore-affordable-sec119", keywords: ["adore", "affordable", "adore affordable", "sector 119"] },
+    { name: "LRG Affordable", url: "faridabad/sector-119/index.html#lrg-affordable", keywords: ["lrg", "affordable", "lrg affordable", "sector 119"] },
+
+    // Sector 121-123 Projects
+    { name: "Dameera Residences", url: "faridabad/sector-121-123/index.html#dameera-residences", keywords: ["dameera", "residences", "dameera residences", "sector 121", "sector 123", "sector 121-123"] },
+    { name: "Mansha OASIS", url: "faridabad/sector-121-123/index.html#mansha-oasis", keywords: ["mansha", "oasis", "mansha oasis", "sector 121", "sector 123", "sector 121-123"] },
+
+    // Sector 127 Residential Projects
+    { name: "Navraj Builder Floors", url: "faridabad/sector-127-residential/index.html#navraj-builder-floors", keywords: ["navraj", "builder floors", "floors", "navraj floors", "sector 127"] },
 
     { name: "Gurugram Plots", url: "projects/gurugram.html", keywords: ["gurugram", "dwarka expressway", "dwarka", "gurgaon", "dwarka plots"] },
     { name: "Sohna Plots", url: "projects/sohna.html", keywords: ["sohna", "sohna plots", "sohna road"] },
@@ -1043,5 +1092,97 @@ function initCardCarousels() {
     }
   });
 }
+
+// --- GLOBAL DYNAMIC BROCHURE MODAL SYSTEM ---
+let activePdf = '';
+
+function openBrochureModal(projectName, pdfName) {
+  let modal = document.getElementById('brochureModal');
+  if (!modal) {
+    const modalHTML = `
+      <div id="brochureModal" class="modal">
+        <div class="modal-content" style="max-width: 420px; overflow: hidden; border-radius: var(--border-radius-lg);">
+          <button class="modal-close" onclick="closeBrochureModal()" aria-label="Close modal" style="position: absolute; top: 20px; right: 20px; background: none; border: none; cursor: pointer; color: var(--text-dark);">
+            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </button>
+          <div class="modal-header" style="text-align: center; border-bottom: none; padding: 35px 30px 10px 30px;">
+            <h3 style="color: var(--primary-dark); font-weight: 700; font-size: 1.4rem;">Download Brochure</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Please provide your contact details to download the official brochure for <strong id="modalProjectName"></strong>.</p>
+          </div>
+          <div class="modal-body" style="padding: 10px 30px 35px 30px;">
+            <form id="brochureForm" onsubmit="handleBrochureSubmit(event)">
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" style="font-size: 0.75rem; font-weight: 600; color: var(--primary-dark); display: block; margin-bottom: 5px; text-transform: uppercase;">Name *</label>
+                <input type="text" id="brochureName" class="form-control" placeholder="Enter your full name" style="padding: 11px 14px; font-size: 0.9rem;" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" style="font-size: 0.75rem; font-weight: 600; color: var(--primary-dark); display: block; margin-bottom: 5px; text-transform: uppercase;">Phone No. *</label>
+                <input type="tel" id="brochurePhone" class="form-control" placeholder="10-digit mobile number" style="padding: 11px 14px; font-size: 0.9rem;" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" style="font-size: 0.75rem; font-weight: 600; color: var(--primary-dark); display: block; margin-bottom: 5px; text-transform: uppercase;">Email Address *</label>
+                <input type="email" id="brochureEmail" class="form-control" placeholder="name@domain.com" style="padding: 11px 14px; font-size: 0.9rem;" required>
+              </div>
+              <div class="form-submit-wrap" style="margin-top: 25px;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">Download Now</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    modal = document.getElementById('brochureModal');
+  }
+
+  const savedName = localStorage.getItem('lead_name');
+  const savedPhone = localStorage.getItem('lead_phone');
+  const savedEmail = localStorage.getItem('lead_email');
+  if (savedName) document.getElementById('brochureName').value = savedName;
+  if (savedPhone) document.getElementById('brochurePhone').value = savedPhone;
+  if (savedEmail) document.getElementById('brochureEmail').value = savedEmail;
+
+  document.getElementById('modalProjectName').innerText = projectName;
+  activePdf = pdfName;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBrochureModal() {
+  const modal = document.getElementById('brochureModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    const form = document.getElementById('brochureForm');
+    if (form) form.reset();
+  }
+}
+
+function handleBrochureSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('brochureName').value;
+  const phone = document.getElementById('brochurePhone').value;
+  const email = document.getElementById('brochureEmail').value;
+  
+  localStorage.setItem('lead_name', name);
+  localStorage.setItem('lead_phone', phone);
+  localStorage.setItem('lead_email', email);
+  
+  let prefix = './';
+  const path = window.location.pathname.toLowerCase();
+  
+  if (path.includes('/faridabad/') && (path.includes('/sector-') || path.includes('/fit/') || path.includes('/imt/'))) {
+    prefix = '../../';
+  } else if (path.includes('/faridabad/') || path.includes('/projects/') || path.includes('/about-us/') || path.includes('/testimonials/') || path.includes('/gallery/') || path.includes('/contact-us/')) {
+    prefix = '../';
+  }
+  
+  window.open(prefix + 'assets/brochures/' + activePdf, '_blank');
+  closeBrochureModal();
+}
+
+window.openBrochureModal = openBrochureModal;
+window.closeBrochureModal = closeBrochureModal;
+window.handleBrochureSubmit = handleBrochureSubmit;
 
 
