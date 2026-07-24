@@ -1224,9 +1224,11 @@ function handleBrochureSubmit(e) {
     }
   }
 
-  // Pre-open blank tab synchronously on click gesture to bypass Chrome/Safari popup blocker
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 768);
+
+  // Pre-open blank tab synchronously on click gesture ONLY on desktop (mobile OS strictly blocks popup tabs)
   let popupWin = null;
-  if (brochureUrl) {
+  if (brochureUrl && !isMobile) {
     try {
       popupWin = window.open('about:blank', '_blank');
     } catch(err) {
@@ -1242,12 +1244,37 @@ function handleBrochureSubmit(e) {
   formData.append('message', 'Brochure requested' + (projName ? ' for ' + projName : ''));
   formData.append('ajax', '1');
 
-  // Send brochure popup lead to database (send_inquiry.php & Broucher table)
   const submitBtn = document.querySelector('#brochureForm button[type="submit"]');
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.innerText = "Submitting...";
+    submitBtn.innerText = "Downloading...";
   }
+
+  const openPdf = () => {
+    if (brochureUrl) {
+      const finalUrl = encodeURI(brochureUrl);
+      if (popupWin && !popupWin.closed) {
+        popupWin.location.href = finalUrl;
+      } else if (isMobile) {
+        // Direct redirection for mobile browsers (Android Chrome & iOS Safari)
+        window.location.href = finalUrl;
+      } else {
+        // Fallback for desktop browsers
+        const link = document.createElement('a');
+        link.href = finalUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Download Now";
+    }
+    closeBrochureModal();
+  };
 
   fetch(getSendInquiryUrl(), {
     method: 'POST',
@@ -1257,20 +1284,7 @@ function handleBrochureSubmit(e) {
   .then(data => console.log('Brochure inquiry saved to database:', data))
   .catch(err => console.error('Error submitting brochure popup to DB:', err))
   .finally(() => {
-    if (brochureUrl) {
-      const finalUrl = encodeURI(brochureUrl);
-      if (popupWin && !popupWin.closed) {
-        popupWin.location.href = finalUrl;
-      } else {
-        // Fallback if popup blocker closed the window
-        window.location.href = finalUrl;
-      }
-    }
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.innerText = "Download Now";
-    }
-    closeBrochureModal();
+    openPdf();
   });
 }
 
