@@ -142,6 +142,14 @@ const BROCHURE_CATALOG = {
   'puri-pratham':              { label: 'Puri Pratham',              file: '../brochure/Puri Pratham sector 84.pdf' },
   'universal-sco-auric':       { label: 'Universal SCO (Auric)',     file: '../brochure/Universal SCO (Auric) sector 79.pdf' },
   'vipul-plaza':               { label: 'Vipul Plaza',               file: '../brochure/Vipul Plaza sector 81.pdf' },
+  'navraj-the-marq-e':         { label: 'Navraj The Marq E',          file: '../brochure/navraj_the_marq_e_brochure.pdf' },
+  'the-wisterias-rps':          { label: 'The Wisteria\'s (RPS)',      file: '../brochure/The_Wisterias_rps.pdf' },
+  'bhumika-the-icon':          { label: 'Bhumika The Icon',          file: '../brochure/bhumika_brochure.pdf' },
+  'bhumika-nh2':               { label: 'Bhumika Residential Enclave', file: '../brochure/bhumika_brochure.pdf' },
+  'bhumika':                   { label: 'Bhumika Group Projects',    file: '../brochure/bhumika_brochure.pdf' },
+  'rps-palm-drive':            { label: 'RPS Palm Drive',            file: '../brochure/rps_palm_drive_sector_88.pdf' },
+  'rps-palm':                  { label: 'RPS Palm',                  file: '../brochure/rps_palm_sector_88.pdf' },
+  'tdi-soha-sco':              { label: 'TDI Soha SCO',              file: '../brochure/tdi_soha_sco_sector_88.pdf' },
 
   /* ---- Location-level fallback groups ---- */
   'faridabad': [
