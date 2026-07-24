@@ -8,7 +8,8 @@
  */
 function getPathPrefix() {
   const pathname = window.location.pathname;
-  if (pathname.includes('/faridabad/sector-')) {
+  // If we are inside any subdirectory under /faridabad/ (e.g. /faridabad/sector-88/ or /faridabad/navraj-the-marq-e/)
+  if (pathname.match(/\/faridabad\/[^\/]+\//)) {
     return '../../';
   } else if (
     pathname.includes('/about-us/') ||
