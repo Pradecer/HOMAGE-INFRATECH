@@ -154,7 +154,7 @@ const FARIDABAD_BROCHURE_CATALOG = {
 function triggerFaridabadBrochureDownload(filePath, label) {
   if (window.showToast) window.showToast('Downloading: ' + label + '\u2026');
   const link = document.createElement('a');
-  link.href = filePath;
+  link.href = encodeURI(filePath);
   link.download = label.replace(/[^a-z0-9\s\-]/gi, '') + '.pdf';
   link.target = '_blank';
   link.rel = 'noopener';

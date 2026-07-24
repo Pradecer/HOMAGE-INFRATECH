@@ -1193,14 +1193,7 @@ function closeBrochureModal() {
 }
 
 function getSendInquiryUrl() {
-  let prefix = './';
-  const path = window.location.pathname.toLowerCase();
-  if (path.includes('/faridabad/') && (path.includes('/sector-') || path.includes('/fit/') || path.includes('/imt/'))) {
-    prefix = '../../';
-  } else if (path.includes('/faridabad/') || path.includes('/projects/') || path.includes('/about-us/') || path.includes('/testimonials/') || path.includes('/gallery/') || path.includes('/contact-us/')) {
-    prefix = '../';
-  }
-  return prefix + 'send_inquiry.php';
+  return getPathPrefix() + 'send_inquiry.php';
 }
 
 function handleBrochureSubmit(e) {
@@ -1238,17 +1231,21 @@ function handleBrochureSubmit(e) {
   .then(data => console.log('Brochure inquiry saved:', data))
   .catch(err => console.error('Error submitting brochure popup to DB:', err))
   .finally(() => {
-    let prefix = './';
-    const path = window.location.pathname.toLowerCase();
-    
-    if (path.includes('/faridabad/') && (path.includes('/sector-') || path.includes('/fit/') || path.includes('/imt/'))) {
-      prefix = '../../';
-    } else if (path.includes('/faridabad/') || path.includes('/projects/') || path.includes('/about-us/') || path.includes('/testimonials/') || path.includes('/gallery/') || path.includes('/contact-us/')) {
-      prefix = '../';
-    }
-    
     if (activePdf) {
-      window.open(prefix + 'assets/brochures/' + activePdf, '_blank');
+      let brochureUrl = '';
+      const prefix = getPathPrefix();
+
+      if (activePdf.startsWith('http://') || activePdf.startsWith('https://')) {
+        brochureUrl = activePdf;
+      } else if (activePdf.startsWith('../../') || activePdf.startsWith('../')) {
+        brochureUrl = activePdf;
+      } else if (activePdf.startsWith('brochure/')) {
+        brochureUrl = prefix + activePdf;
+      } else {
+        brochureUrl = prefix + 'brochure/' + activePdf;
+      }
+
+      window.open(encodeURI(brochureUrl), '_blank');
     }
     closeBrochureModal();
   });
