@@ -304,79 +304,8 @@
     </a>
   </div>
 
-  <!-- --- BROCHURE MODAL --- -->
-  <div id="brochureModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeBrochureModal()">&times;</span>
-      <h3 style="margin-bottom: 10px;">Download Brochure</h3>
-      <p style="margin-bottom: 20px;">Please provide your contact details to download the official brochure for <strong id="modalProjectName"></strong>.</p>
-      <form id="brochureForm" onsubmit="handleBrochureSubmit(event)">
-        <div class="form-group" style="margin-bottom: 15px;">
-          <input type="text" id="brochureName" placeholder="Your Name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <div class="form-group" style="margin-bottom: 15px;">
-          <input type="tel" id="brochurePhone" placeholder="Mobile Number" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <div class="form-group" style="margin-bottom: 20px;">
-          <input type="email" id="brochureEmail" placeholder="Email Address" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Download Now</button>
-      </form>
-    </div>
-  </div>
-
   <!-- Scripts -->
   <script src="../../assets/js/common.js?v=6"></script>
-  <script>
-    let activePdf = '';
-    
-    function openBrochureModal(projectName, pdfName) {
-      document.getElementById('modalProjectName').innerText = projectName;
-      activePdf = pdfName;
-      document.getElementById('brochureModal').style.display = 'block';
-    }
-    
-    function closeBrochureModal() {
-      document.getElementById('brochureModal').style.display = 'none';
-      document.getElementById('brochureForm').reset();
-    }
-    
-    function handleBrochureSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('brochureName').value;
-      const phone = document.getElementById('brochurePhone').value;
-      const email = document.getElementById('brochureEmail').value;
-      const projNameElem = document.getElementById('modalProjectName');
-      const projName = projNameElem ? projNameElem.innerText : '';
-      
-      // Store lead info
-      localStorage.setItem('lead_name', name);
-      localStorage.setItem('lead_phone', phone);
-      localStorage.setItem('lead_email', email);
-      
-      // Send to DB
-      try {
-        const formData = new FormData();
-        formData.append('full_name', name);
-        formData.append('phone_number', phone);
-        formData.append('email', email);
-        formData.append('plot_interest', 'Brochure Download Popup');
-        formData.append('message', 'Brochure requested' + (projName ? ' for ' + projName : ''));
-        formData.append('ajax', '1');
-
-        fetch('../../send_inquiry.php', {
-          method: 'POST',
-          body: formData
-        }).catch(err => console.error('Error submitting brochure popup to DB:', err));
-      } catch(err) {
-        console.error(err);
-      }
-
-      // Open the pdf
-      if (activePdf) window.open('../../brochure/' + activePdf, '_blank');
-      closeBrochureModal();
-    }
-  </script>
 </body>
 
 </html>

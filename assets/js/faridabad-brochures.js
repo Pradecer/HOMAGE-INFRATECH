@@ -147,7 +147,11 @@ const FARIDABAD_BROCHURE_CATALOG = {
     if (Array.isArray(entry)) {
       showFaridabadBrochurePicker(entry);
     } else {
-      triggerFaridabadBrochureDownload(entry.file, entry.label);
+      if (typeof window.openBrochureModal === 'function') {
+        window.openBrochureModal(entry.label, entry.file);
+      } else {
+        triggerFaridabadBrochureDownload(entry.file, entry.label);
+      }
     }
   };
 })();
@@ -189,7 +193,11 @@ function showFaridabadBrochurePicker(brochures) {
     btn.addEventListener('click', function() {
       var idx = parseInt(btn.dataset.index, 10);
       modal.remove();
-      triggerFaridabadBrochureDownload(brochures[idx].file, brochures[idx].label);
+      if (typeof window.openBrochureModal === 'function') {
+        window.openBrochureModal(brochures[idx].label, brochures[idx].file);
+      } else {
+        triggerFaridabadBrochureDownload(brochures[idx].file, brochures[idx].label);
+      }
     });
   });
 }

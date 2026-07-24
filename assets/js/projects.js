@@ -204,8 +204,11 @@ function downloadBrochure(projectKey) {
     // Multiple brochures – show a picker
     showBrochurePicker(entry, key);
   } else {
-    // Single brochure – download directly
-    triggerBrochureDownload(entry.file, entry.label);
+    if (typeof window.openBrochureModal === 'function') {
+      window.openBrochureModal(entry.label, entry.file);
+    } else {
+      triggerBrochureDownload(entry.file, entry.label);
+    }
   }
 }
 window.downloadBrochure = downloadBrochure;
@@ -289,7 +292,11 @@ function showBrochurePicker(brochures, groupLabel) {
       const idx = parseInt(btn.dataset.index, 10);
       const b = brochures[idx];
       modal.remove();
-      triggerBrochureDownload(b.file, b.label);
+      if (typeof window.openBrochureModal === 'function') {
+        window.openBrochureModal(b.label, b.file);
+      } else {
+        triggerBrochureDownload(b.file, b.label);
+      }
     });
   });
 }
