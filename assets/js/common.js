@@ -1184,7 +1184,7 @@ function openBrochureModal(projectName, pdfName) {
   
   if (lower.includes('wisteria')) resolvedPdf = 'The_Wisterias_rps.pdf';
   else if (lower.includes('bhumika')) resolvedPdf = 'bhumika_brochure.pdf';
-  else if (lower.includes('navraj')) resolvedPdf = 'navraj_the_marq_e_brochure.pdf';
+  else if (lower.includes('navraj')) resolvedPdf = 'navraj_the_marq_brochure.pdf';
   else if (lower.includes('rps palm drive')) resolvedPdf = 'rps_palm_drive_sector_88.pdf';
   else if (lower.includes('rps palm')) resolvedPdf = 'rps_palm_sector_88.pdf';
   else if (lower.includes('tdi soha')) resolvedPdf = 'tdi_soha_sco_sector_88.pdf';
