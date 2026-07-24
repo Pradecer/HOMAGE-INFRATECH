@@ -1,35 +1,38 @@
 <?php
-// Error reporting ON karein
+// Error reporting ON
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Database connection file include karein
+// Database connection file include
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Form se aaye hue data ko receive aur sanitize karein
+    // Receive and sanitize form data
     $full_name     = mysqli_real_escape_string($conn, $_POST['full_name']);
     $phone_number  = mysqli_real_escape_string($conn, $_POST['phone_number']);
     $email         = mysqli_real_escape_string($conn, $_POST['email']);
     
-    // Agar ye fields form me hain toh receive hongi, nahi toh NULL rahengi
     $plot_interest = isset($_POST['plot_interest']) ? mysqli_real_escape_string($conn, $_POST['plot_interest']) : NULL;
     $message       = isset($_POST['message']) ? mysqli_real_escape_string($conn, $_POST['message']) : NULL;
 
-    // Database me data insert karne ke liye SQL Query
-    $sql = "INSERT INTO inquiries (full_name, phone_number, email, plot_interest, message) 
-            VALUES ('$full_name', '$phone_number', '$email', '$plot_interest', '$message')";
+    // 1. Insert into 'inquiries' table
+    $sql_inquiries = "INSERT INTO inquiries (full_name, phone_number, email, plot_interest, message) 
+                      VALUES ('$full_name', '$phone_number', '$email', '$plot_interest', '$message')";
+    $res1 = $conn->query($sql_inquiries);
+
+    // 2. Insert into 'Broucher' table (Name, Phone_no, Email) as shown in phpMyAdmin
+    @$conn->query("INSERT INTO Broucher (Name, Phone_no, Email) VALUES ('$full_name', '$phone_number', '$email')");
+    @$conn->query("INSERT INTO broucher (Name, Phone_no, Email) VALUES ('$full_name', '$phone_number', '$email')");
 
     $is_ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') || isset($_POST['ajax']);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($res1 === TRUE || $conn->affected_rows > 0) {
         if ($is_ajax) {
             header('Content-Type: application/json');
             echo json_encode(["status" => "success", "message" => "Inquiry saved successfully"]);
             exit;
         } else {
-            // Data save hone ke baad message ya redirect
             echo "<script>alert('Thank you! Your inquiry has been submitted successfully.'); window.location.href='index.html';</script>";
         }
     } else {
@@ -38,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode(["status" => "error", "error" => $conn->error]);
             exit;
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql_inquiries . "<br>" . $conn->error;
         }
     }
 

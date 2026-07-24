@@ -1207,7 +1207,33 @@ function handleBrochureSubmit(e) {
   localStorage.setItem('lead_name', name);
   localStorage.setItem('lead_phone', phone);
   localStorage.setItem('lead_email', email);
-  
+
+  // Compute target brochure URL before async fetch
+  let brochureUrl = '';
+  const prefix = getPathPrefix();
+
+  if (activePdf) {
+    if (activePdf.startsWith('http://') || activePdf.startsWith('https://')) {
+      brochureUrl = activePdf;
+    } else if (activePdf.startsWith('../../') || activePdf.startsWith('../')) {
+      brochureUrl = activePdf;
+    } else if (activePdf.startsWith('brochure/')) {
+      brochureUrl = prefix + activePdf;
+    } else {
+      brochureUrl = prefix + 'brochure/' + activePdf;
+    }
+  }
+
+  // Pre-open blank tab synchronously on click gesture to bypass Chrome/Safari popup blocker
+  let popupWin = null;
+  if (brochureUrl) {
+    try {
+      popupWin = window.open('about:blank', '_blank');
+    } catch(err) {
+      console.warn('Popup window blocked initially:', err);
+    }
+  }
+
   const formData = new FormData();
   formData.append('full_name', name);
   formData.append('phone_number', phone);
@@ -1216,7 +1242,7 @@ function handleBrochureSubmit(e) {
   formData.append('message', 'Brochure requested' + (projName ? ' for ' + projName : ''));
   formData.append('ajax', '1');
 
-  // Send brochure popup lead to database (send_inquiry.php)
+  // Send brochure popup lead to database (send_inquiry.php & Broucher table)
   const submitBtn = document.querySelector('#brochureForm button[type="submit"]');
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -1228,24 +1254,21 @@ function handleBrochureSubmit(e) {
     body: formData
   })
   .then(res => res.json())
-  .then(data => console.log('Brochure inquiry saved:', data))
+  .then(data => console.log('Brochure inquiry saved to database:', data))
   .catch(err => console.error('Error submitting brochure popup to DB:', err))
   .finally(() => {
-    if (activePdf) {
-      let brochureUrl = '';
-      const prefix = getPathPrefix();
-
-      if (activePdf.startsWith('http://') || activePdf.startsWith('https://')) {
-        brochureUrl = activePdf;
-      } else if (activePdf.startsWith('../../') || activePdf.startsWith('../')) {
-        brochureUrl = activePdf;
-      } else if (activePdf.startsWith('brochure/')) {
-        brochureUrl = prefix + activePdf;
+    if (brochureUrl) {
+      const finalUrl = encodeURI(brochureUrl);
+      if (popupWin && !popupWin.closed) {
+        popupWin.location.href = finalUrl;
       } else {
-        brochureUrl = prefix + 'brochure/' + activePdf;
+        // Fallback if popup blocker closed the window
+        window.location.href = finalUrl;
       }
-
-      window.open(encodeURI(brochureUrl), '_blank');
+    }
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Download Now";
     }
     closeBrochureModal();
   });
