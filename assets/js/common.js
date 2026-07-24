@@ -281,11 +281,6 @@ window.showToast = showToast; // Make globally accessible
  * Initialize 5-second delayed onload enquiry popup modal
  */
 function initOnloadPopup() {
-  // If the user has already submitted an enquiry, don't show the popup
-  if (localStorage.getItem('homage_enquiry_submitted') === 'true') {
-    return;
-  }
-
   // If we are on the contact-us page, don't show the popup
   if (window.location.pathname.includes('/contact-us/')) {
     return;
@@ -427,26 +422,24 @@ function initOnloadPopup() {
             timestamp: new Date().toISOString()
           };
           
-          // Send to database (send_inquiry.php)
-          try {
-            const formData = new FormData();
-            formData.append('full_name', leadData.name);
-            formData.append('phone_number', leadData.phone);
-            formData.append('email', leadData.email);
-            formData.append('plot_interest', leadData.interest);
-            formData.append('message', leadData.message);
-            formData.append('ajax', '1');
+          const formData = new FormData();
+          formData.append('full_name', leadData.name);
+          formData.append('phone_number', leadData.phone);
+          formData.append('email', leadData.email);
+          formData.append('plot_interest', leadData.interest);
+          formData.append('message', leadData.message);
+          formData.append('ajax', '1');
 
-            fetch(getSendInquiryUrl(), {
-              method: 'POST',
-              body: formData
-            }).catch(err => console.error('Error submitting popup to DB:', err));
-          } catch(err) {
-            console.error(err);
-          }
-          
-          // Log lead to localStorage
-          setTimeout(() => {
+          // Send to database (send_inquiry.php)
+          fetch(getSendInquiryUrl(), {
+            method: 'POST',
+            body: formData
+          })
+          .then(res => res.json())
+          .then(data => console.log('Popup inquiry saved:', data))
+          .catch(err => console.error('Error submitting popup to DB:', err))
+          .finally(() => {
+            // Log lead to localStorage
             let leads = [];
             try {
               leads = JSON.parse(localStorage.getItem('homage_leads') || '[]');
@@ -455,14 +448,13 @@ function initOnloadPopup() {
             }
             leads.push(leadData);
             localStorage.setItem('homage_leads', JSON.stringify(leads));
-            localStorage.setItem('homage_enquiry_submitted', 'true');
             localStorage.setItem('homage_user_name', leadData.name);
             localStorage.setItem('homage_user_email', leadData.email);
             localStorage.setItem('homage_user_phone', leadData.phone);
             
             closePopup();
             showToast("Inquiry submitted! Our advisor will call you shortly.");
-          }, 1000);
+          });
         }
       });
     }
@@ -1222,37 +1214,43 @@ function handleBrochureSubmit(e) {
   localStorage.setItem('lead_phone', phone);
   localStorage.setItem('lead_email', email);
   
+  const formData = new FormData();
+  formData.append('full_name', name);
+  formData.append('phone_number', phone);
+  formData.append('email', email);
+  formData.append('plot_interest', 'Brochure Download Popup');
+  formData.append('message', 'Brochure requested' + (projName ? ' for ' + projName : ''));
+  formData.append('ajax', '1');
+
   // Send brochure popup lead to database (send_inquiry.php)
-  try {
-    const formData = new FormData();
-    formData.append('full_name', name);
-    formData.append('phone_number', phone);
-    formData.append('email', email);
-    formData.append('plot_interest', 'Brochure Download Popup');
-    formData.append('message', 'Brochure requested' + (projName ? ' for ' + projName : ''));
-    formData.append('ajax', '1');
-
-    fetch(getSendInquiryUrl(), {
-      method: 'POST',
-      body: formData
-    }).catch(err => console.error('Error submitting brochure popup to DB:', err));
-  } catch(err) {
-    console.error(err);
+  const submitBtn = document.querySelector('#brochureForm button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
   }
 
-  let prefix = './';
-  const path = window.location.pathname.toLowerCase();
-  
-  if (path.includes('/faridabad/') && (path.includes('/sector-') || path.includes('/fit/') || path.includes('/imt/'))) {
-    prefix = '../../';
-  } else if (path.includes('/faridabad/') || path.includes('/projects/') || path.includes('/about-us/') || path.includes('/testimonials/') || path.includes('/gallery/') || path.includes('/contact-us/')) {
-    prefix = '../';
-  }
-  
-  if (activePdf) {
-    window.open(prefix + 'assets/brochures/' + activePdf, '_blank');
-  }
-  closeBrochureModal();
+  fetch(getSendInquiryUrl(), {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => console.log('Brochure inquiry saved:', data))
+  .catch(err => console.error('Error submitting brochure popup to DB:', err))
+  .finally(() => {
+    let prefix = './';
+    const path = window.location.pathname.toLowerCase();
+    
+    if (path.includes('/faridabad/') && (path.includes('/sector-') || path.includes('/fit/') || path.includes('/imt/'))) {
+      prefix = '../../';
+    } else if (path.includes('/faridabad/') || path.includes('/projects/') || path.includes('/about-us/') || path.includes('/testimonials/') || path.includes('/gallery/') || path.includes('/contact-us/')) {
+      prefix = '../';
+    }
+    
+    if (activePdf) {
+      window.open(prefix + 'assets/brochures/' + activePdf, '_blank');
+    }
+    closeBrochureModal();
+  });
 }
 
 window.openBrochureModal = openBrochureModal;
