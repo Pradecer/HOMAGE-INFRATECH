@@ -363,14 +363,34 @@
       const name = document.getElementById('brochureName').value;
       const phone = document.getElementById('brochurePhone').value;
       const email = document.getElementById('brochureEmail').value;
+      const projNameElem = document.getElementById('modalProjectName');
+      const projName = projNameElem ? projNameElem.innerText : '';
       
       // Store lead info in localStorage as common.js expects
       localStorage.setItem('lead_name', name);
       localStorage.setItem('lead_phone', phone);
       localStorage.setItem('lead_email', email);
       
+      // Send to DB
+      try {
+        const formData = new FormData();
+        formData.append('full_name', name);
+        formData.append('phone_number', phone);
+        formData.append('email', email);
+        formData.append('plot_interest', 'Brochure Download Popup');
+        formData.append('message', 'Brochure requested' + (projName ? ' for ' + projName : ''));
+        formData.append('ajax', '1');
+
+        fetch('../send_inquiry.php', {
+          method: 'POST',
+          body: formData
+        }).catch(err => console.error('Error submitting brochure popup to DB:', err));
+      } catch(err) {
+        console.error(err);
+      }
+
       // Open the pdf in new tab
-      window.open('../assets/brochures/' + activePdf, '_blank');
+      if (activePdf) window.open('../assets/brochures/' + activePdf, '_blank');
       closeBrochureModal();
     }
   </script>

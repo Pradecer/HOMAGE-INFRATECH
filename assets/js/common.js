@@ -422,10 +422,28 @@ function initOnloadPopup() {
             name: nameInput.value.trim(),
             email: emailInput.value.trim(),
             phone: phoneInput.value.replace(/\D/g, ''),
-            interest: 'onload_popup',
-            message: 'Inquiry submitted from automatically loaded homepage popup',
+            interest: 'Homepage Popup',
+            message: 'Inquiry submitted from homepage popup modal',
             timestamp: new Date().toISOString()
           };
+          
+          // Send to database (send_inquiry.php)
+          try {
+            const formData = new FormData();
+            formData.append('full_name', leadData.name);
+            formData.append('phone_number', leadData.phone);
+            formData.append('email', leadData.email);
+            formData.append('plot_interest', leadData.interest);
+            formData.append('message', leadData.message);
+            formData.append('ajax', '1');
+
+            fetch(getSendInquiryUrl(), {
+              method: 'POST',
+              body: formData
+            }).catch(err => console.error('Error submitting popup to DB:', err));
+          } catch(err) {
+            console.error(err);
+          }
           
           // Log lead to localStorage
           setTimeout(() => {
@@ -1181,16 +1199,47 @@ function closeBrochureModal() {
   }
 }
 
+function getSendInquiryUrl() {
+  let prefix = './';
+  const path = window.location.pathname.toLowerCase();
+  if (path.includes('/faridabad/') && (path.includes('/sector-') || path.includes('/fit/') || path.includes('/imt/'))) {
+    prefix = '../../';
+  } else if (path.includes('/faridabad/') || path.includes('/projects/') || path.includes('/about-us/') || path.includes('/testimonials/') || path.includes('/gallery/') || path.includes('/contact-us/')) {
+    prefix = '../';
+  }
+  return prefix + 'send_inquiry.php';
+}
+
 function handleBrochureSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('brochureName').value;
   const phone = document.getElementById('brochurePhone').value;
   const email = document.getElementById('brochureEmail').value;
+  const projNameElem = document.getElementById('modalProjectName');
+  const projName = projNameElem ? projNameElem.innerText : '';
   
   localStorage.setItem('lead_name', name);
   localStorage.setItem('lead_phone', phone);
   localStorage.setItem('lead_email', email);
   
+  // Send brochure popup lead to database (send_inquiry.php)
+  try {
+    const formData = new FormData();
+    formData.append('full_name', name);
+    formData.append('phone_number', phone);
+    formData.append('email', email);
+    formData.append('plot_interest', 'Brochure Download Popup');
+    formData.append('message', 'Brochure requested' + (projName ? ' for ' + projName : ''));
+    formData.append('ajax', '1');
+
+    fetch(getSendInquiryUrl(), {
+      method: 'POST',
+      body: formData
+    }).catch(err => console.error('Error submitting brochure popup to DB:', err));
+  } catch(err) {
+    console.error(err);
+  }
+
   let prefix = './';
   const path = window.location.pathname.toLowerCase();
   
@@ -1200,7 +1249,9 @@ function handleBrochureSubmit(e) {
     prefix = '../';
   }
   
-  window.open(prefix + 'assets/brochures/' + activePdf, '_blank');
+  if (activePdf) {
+    window.open(prefix + 'assets/brochures/' + activePdf, '_blank');
+  }
   closeBrochureModal();
 }
 

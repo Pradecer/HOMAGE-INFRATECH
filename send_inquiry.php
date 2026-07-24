@@ -21,11 +21,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO inquiries (full_name, phone_number, email, plot_interest, message) 
             VALUES ('$full_name', '$phone_number', '$email', '$plot_interest', '$message')";
 
+    $is_ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') || isset($_POST['ajax']);
+
     if ($conn->query($sql) === TRUE) {
-        // Data save hone ke baad message ya redirect
-        echo "<script>alert('Thank you! Your inquiry has been submitted successfully.'); window.location.href='index.html';</script>";
+        if ($is_ajax) {
+            header('Content-Type: application/json');
+            echo json_encode(["status" => "success", "message" => "Inquiry saved successfully"]);
+            exit;
+        } else {
+            // Data save hone ke baad message ya redirect
+            echo "<script>alert('Thank you! Your inquiry has been submitted successfully.'); window.location.href='index.html';</script>";
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        if ($is_ajax) {
+            header('Content-Type: application/json');
+            echo json_encode(["status" => "error", "error" => $conn->error]);
+            exit;
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 
     $conn->close();
