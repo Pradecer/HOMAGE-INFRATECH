@@ -1236,18 +1236,6 @@ function handleBrochureSubmit(e) {
     }
   }
 
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 768);
-
-  // Pre-open blank tab synchronously on click gesture ONLY on desktop (mobile OS strictly blocks popup tabs)
-  let popupWin = null;
-  if (brochureUrl && !isMobile) {
-    try {
-      popupWin = window.open('about:blank', '_blank');
-    } catch(err) {
-      console.warn('Popup window blocked initially:', err);
-    }
-  }
-
   const formData = new FormData();
   formData.append('full_name', name);
   formData.append('phone_number', phone);
@@ -1262,24 +1250,20 @@ function handleBrochureSubmit(e) {
     submitBtn.innerText = "Downloading...";
   }
 
-  const openPdf = () => {
+  const triggerDirectDownload = () => {
     if (brochureUrl) {
       const finalUrl = encodeURI(brochureUrl);
-      if (popupWin && !popupWin.closed) {
-        popupWin.location.href = finalUrl;
-      } else if (isMobile) {
-        // Direct redirection for mobile browsers (Android Chrome & iOS Safari)
-        window.location.href = finalUrl;
-      } else {
-        // Fallback for desktop browsers
-        const link = document.createElement('a');
-        link.href = finalUrl;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
+      const filename = brochureUrl.substring(brochureUrl.lastIndexOf('/') + 1) || 'brochure.pdf';
+      
+      const link = document.createElement('a');
+      link.href = finalUrl;
+      link.setAttribute('download', filename);
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => {
+        if (link.parentNode) link.parentNode.removeChild(link);
+      }, 200);
     }
     if (submitBtn) {
       submitBtn.disabled = false;
@@ -1296,7 +1280,7 @@ function handleBrochureSubmit(e) {
   .then(data => console.log('Brochure inquiry saved to database:', data))
   .catch(err => console.error('Error submitting brochure popup to DB:', err))
   .finally(() => {
-    openPdf();
+    triggerDirectDownload();
   });
 }
 
