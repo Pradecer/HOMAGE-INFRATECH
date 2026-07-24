@@ -27,16 +27,21 @@ function initContactForm() {
 
   // Form Submit Handler
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
     // Run all validations
     const isNameValid = validateField(nameInput, val => val.trim().length > 1, "Please enter your name (min 2 characters)");
     const isEmailValid = validateField(emailInput, val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), "Please enter a valid email address");
     const isPhoneValid = validateField(phoneInput, val => /^[6-9]\d{9}$/.test(val.replace(/\D/g, '')), "Please enter a valid 10-digit Indian phone number");
     
     if (isNameValid && isEmailValid && isPhoneValid) {
+      const action = form.getAttribute('action');
+      if (action && action.length > 0) {
+        // Form has action endpoint set (e.g. send_inquiry.php) - allow native form submission
+        return true;
+      }
+      e.preventDefault();
       submitForm();
     } else {
+      e.preventDefault();
       // Focus on the first invalid field
       if (!isNameValid && nameInput) nameInput.focus();
       else if (!isEmailValid && emailInput) emailInput.focus();

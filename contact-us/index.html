@@ -178,38 +178,38 @@
           <h3>Request Call Back & Layout Guide</h3>
           <p>Fill out the inquiry form below. Our Faridabad land specialist will contact you with RERA, layout plans, and pricing within 2 business hours.</p>
           
-          <form id="lead-form" novalidate>
+          <form action="../send_inquiry.php" method="POST" id="lead-form" novalidate>
             <div class="form-group">
               <label for="contact-name" class="form-label">Full Name *</label>
-              <input type="text" id="contact-name" class="form-control" placeholder="Enter your full name" required>
+              <input type="text" id="contact-name" name="full_name" class="form-control" placeholder="Enter your full name" required>
               <span class="error-message"></span>
             </div>
             
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-phone" class="form-label">Phone Number *</label>
-                <input type="tel" id="contact-phone" class="form-control" placeholder="10-digit mobile number" required>
+                <input type="tel" id="contact-phone" name="phone_number" class="form-control" placeholder="10-digit mobile number" required>
                 <span class="error-message"></span>
               </div>
               <div class="form-group">
                 <label for="contact-email" class="form-label">Email Address *</label>
-                <input type="email" id="contact-email" class="form-control" placeholder="name@domain.com" required>
+                <input type="email" id="contact-email" name="email" class="form-control" placeholder="name@domain.com" required>
                 <span class="error-message"></span>
               </div>
             </div>
             
             <div class="form-group">
               <label for="contact-interest" class="form-label">Type of Plot Interest</label>
-              <select id="contact-interest" class="form-control">
-                <option value="residential">Residential Plots (builder floors/villas)</option>
-                <option value="commercial">Commercial Plots (shop cum office / retail fronts)</option>
-                <option value="general">General Land Investment Enquiry</option>
+              <select id="contact-interest" name="plot_interest" class="form-control">
+                <option value="Residential Plots">Residential Plots (builder floors/villas)</option>
+                <option value="Commercial Plots">Commercial Plots (shop cum office / retail fronts)</option>
+                <option value="General Land Investment">General Land Investment Enquiry</option>
               </select>
             </div>
             
             <div class="form-group">
               <label for="contact-message" class="form-label">Message / Specific Requirements</label>
-              <textarea id="contact-message" class="form-control" placeholder="Provide details on preferred plot size or layout requirements..."></textarea>
+              <textarea id="contact-message" name="message" class="form-control" placeholder="Provide details on preferred plot size or layout requirements..."></textarea>
             </div>
             
             <div class="form-submit-wrap">
