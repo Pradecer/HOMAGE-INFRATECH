@@ -691,10 +691,25 @@ function initNavSearch() {
         return;
       }
 
-      currentMatches = allProjects.filter(p => 
-        p.name.toLowerCase().includes(query) || 
-        p.keywords.some(k => k.includes(query))
-      );
+      const cleanQuery = query
+        .replace(/\bsec\b/g, 'sector')
+        .replace(/-/g, ' ')
+        .replace(/,/g, ' ')
+        .replace(/\s+/g, ' ');
+
+      const queryParts = cleanQuery.split(' ').filter(part => part.length > 0);
+
+      currentMatches = allProjects.filter(p => {
+        const loc = getLocText(p.url).toLowerCase();
+        const keywordsJoined = p.keywords.join(" ").toLowerCase();
+        const nameLower = p.name.toLowerCase();
+        const searchText = `${nameLower} ${keywordsJoined} ${loc}`
+          .replace(/-/g, ' ')
+          .replace(/,/g, ' ')
+          .replace(/\s+/g, ' ');
+          
+        return queryParts.every(part => searchText.includes(part));
+      });
 
       if (currentMatches.length > 0) {
         currentMatches.forEach((match, idx) => {
