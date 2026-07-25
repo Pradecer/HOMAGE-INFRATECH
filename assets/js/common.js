@@ -469,197 +469,175 @@ function initNavSearch() {
   const searchInputs = document.querySelectorAll('.nav-search-input');
   
   const allProjects = [
-    // Sector 72-73 Residential Projects
-    { name: "Adore Prima 1", url: "faridabad/sector-72-73-residential/index.html#adore-prime-1", keywords: ["adore", "prima", "prima 1", "adore prima 1", "prime", "prime 1", "adore prime 1", "sector 72", "sector 73", "sector 72-73"] },
-    { name: "Adore Prima 2", url: "faridabad/sector-72-73-residential/index.html#adore-prime-2", keywords: ["adore", "prima", "prima 2", "adore prima 2", "prime", "prime 2", "adore prime 2", "sector 72", "sector 73", "sector 72-73"] },
-
-    { name: "BPTP Resort", url: "faridabad/sector-75/index.html#bptp-resort", keywords: ["resort", "bptp resort", "sector 75", "luxury"] },
-    { name: "Adore Pride", url: "faridabad/sector-75/index.html#adore-pride", keywords: ["adore", "adore pride", "pride", "sector 75"] },
-    { name: "Terra Lavinium", url: "faridabad/sector-75/index.html#terra-lavinium", keywords: ["terra", "lavinium", "terra lavinium", "sector 75"] },
-    { name: "P Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-p", keywords: ["block p", "p block", "bptp p", "sector 75"] },
-    { name: "Q Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-q", keywords: ["block q", "q block", "bptp q", "sector 75"] },
-    { name: "R Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-r", keywords: ["block r", "r block", "bptp r", "sector 75"] },
-    { name: "S Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-s", keywords: ["block s", "s block", "bptp s", "sector 75"] },
-    { name: "T Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-t", keywords: ["block t", "t block", "bptp t", "sector 75"] },
-    { name: "Palm Residency", url: "faridabad/sector-76/index.html#palm-residency", keywords: ["palm", "residency", "palm residency", "sector 76"] },
-    { name: "Park Floors 2", url: "faridabad/sector-76/index.html#park-floors-2", keywords: ["park floors", "floors 2", "park floors 2", "sector 76"] },
-    { name: "U Blocks BPTP", url: "faridabad/sector-76/index.html#bptp-block-u", keywords: ["block u", "u block", "bptp u", "sector 76"] },
-    { name: "V Blocks BPTP", url: "faridabad/sector-76/index.html#bptp-block-v", keywords: ["block v", "v block", "bptp v", "sector 76"] },
-    { name: "W Blocks BPTP", url: "faridabad/sector-76/index.html#bptp-block-w", keywords: ["block w", "w block", "bptp w", "sector 76"] },
-    { name: "X Blocks BPTP", url: "faridabad/sector-76/index.html#bptp-block-x", keywords: ["block x", "x block", "bptp x", "sector 76"] },
-    { name: "Y Blocks BPTP", url: "faridabad/sector-76/index.html#bptp-block-y", keywords: ["block y", "y block", "bptp y", "sector 76"] },
-    { name: "BPTP Park Land Pride", url: "faridabad/sector-77/index.html#bptp-park-land-pride", keywords: ["park land", "park land pride", "bptp park land", "sector 77"] },
-    { name: "Pride Floors", url: "faridabad/sector-77/index.html#pride-floors", keywords: ["pride floors", "floors", "pride", "sector 77"] },
-    { name: "PA Blocks BPTP", url: "faridabad/sector-77/index.html#bptp-block-pa", keywords: ["block pa", "pa block", "bptp pa", "sector 77"] },
-    { name: "PB Blocks BPTP", url: "faridabad/sector-77/index.html#bptp-block-pb", keywords: ["block pb", "pb block", "bptp pb", "sector 77"] },
-    { name: "PC Blocks BPTP", url: "faridabad/sector-77/index.html#bptp-block-pc", keywords: ["block pc", "pc block", "bptp pc", "sector 77"] },
-    { name: "PD Blocks BPTP", url: "faridabad/sector-77/index.html#bptp-block-pd", keywords: ["block pd", "pd block", "bptp pd", "sector 77"] },
-    { name: "PE Blocks BPTP", url: "faridabad/sector-77/index.html#bptp-block-pe", keywords: ["block pe", "pe block", "bptp pe", "sector 77"] },
-    { name: "KLJ Platinum Height", url: "faridabad/sector-77/index.html#klj-platinum-height", keywords: ["klj", "platinum", "height", "klj platinum", "sector 77"] },
-    { name: "KLJ Green's", url: "faridabad/sector-77/index.html#klj-green", keywords: ["klj green", "klj green's", "green", "klj", "sector 77"] },
-    { name: "KLJ Platinum Floors", url: "faridabad/sector-77/index.html#klj-platinum-floors", keywords: ["klj floors", "platinum floors", "klj platinum floors", "sector 77"] },
-    { name: "KLJ JALWAYU Vihar", url: "faridabad/sector-77/index.html#klj-jalwayu-vihar", keywords: ["jalwayu", "jalwayu vihar", "klj jalwayu", "sector 77"] },
-    
-    // Sector 78 Projects
-    { name: "Habitat 2/3 BHK", url: "faridabad/sector-78/index.html#habitat-2-3-bhk", keywords: ["habitat", "habitat 2/3", "sector 78", "residences"] },
-    { name: "Habitat Residences", url: "faridabad/sector-78/index.html#habitat-residences", keywords: ["habitat residences", "residences", "sector 78"] },
-    { name: "Habitat Sector 78", url: "faridabad/sector-78/index.html#habitat-sector-78", keywords: ["habitat sector 78", "habitat 78", "sector 78"] },
-    { name: "Adore Broadway", url: "faridabad/sector-78/index.html#adore-broadway", keywords: ["adore", "broadway", "adore broadway", "sector 78"] },
-    
-    // Sector 79 Projects
-    { name: "World Street SCO", url: "faridabad/sector-79-commercial/index.html#world-street-sco", keywords: ["world street", "sco", "world street sco", "sector 79"] },
-    { name: "OMAXE Sun", url: "faridabad/sector-79-commercial/index.html#omaxe-sun", keywords: ["omaxe", "sun", "omaxe sun", "sector 79"] },
-    { name: "Hi Fun Mall", url: "faridabad/sector-79-commercial/index.html#hi-fun-mall", keywords: ["hi fun", "mall", "hi fun mall", "sector 79"] },
-    { name: "Universal SCO (Auric)", url: "faridabad/sector-79-commercial/index.html#universal-sco-auric", keywords: ["universal", "sco", "auric", "sector 79"] },
-    { name: "Capital SCO", url: "faridabad/sector-79-commercial/index.html#capital-sco", keywords: ["capital", "sco", "capital sco", "sector 79"] },
-
-    // Sector 80 Projects
-    { name: "BPTP Sky Nest (3&4 BHK)", url: "faridabad/sector-80/index.html#bptp-sky-nest", keywords: ["bptp", "sky nest", "sky", "nest", "sector 80"] },
-    { name: "BPTP Discovery Park Phase 1 (2&3 BHK)", url: "faridabad/sector-80/index.html#bptp-discovery-park-phase-1", keywords: ["discovery", "park", "discovery park", "phase 1", "sector 80"] },
-    { name: "BPTP Discovery Park Phase 2 (Duplex)", url: "faridabad/sector-80/index.html#bptp-discovery-park-phase-2", keywords: ["discovery", "park", "discovery park", "phase 2", "duplex", "sector 80"] },
-    { name: "Z Block BPTP", url: "faridabad/sector-80/index.html#bptp-block-z", keywords: ["block z", "z block", "bptp z", "sector 80"] },
-    { name: "Ansal Crown", url: "faridabad/sector-80/index.html#ansal-crown", keywords: ["ansal", "crown", "ansal crown", "sector 80"] },
-
-    // Sector 81 Projects
-    { name: "Puri Anand Villa", url: "faridabad/sector-81/index.html#puri-anand-villa", keywords: ["puri", "anand", "villa", "anand villa", "sector 81"] },
-    { name: "Puri 81 High Street Mall", url: "faridabad/sector-81-commercial/index.html#puri-81-high-street-mall", keywords: ["puri", "high street", "mall", "puri 81", "sector 81"] },
-    { name: "Puri 81 Business Hub", url: "faridabad/sector-81-commercial/index.html#puri-81-business-hub", keywords: ["puri", "business", "hub", "business hub", "sector 81"] },
-    { name: "BPTP Eden-Estate Plot", url: "faridabad/sector-81/index.html#bptp-eden-estate-plot", keywords: ["bptp", "eden", "estate", "eden estate", "sector 81"] },
-    { name: "Puri VIP Floor", url: "faridabad/sector-81/index.html#puri-vip-floor", keywords: ["puri", "vip", "floor", "vip floor", "sector 81"] },
-    { name: "BPTP Park 81", url: "faridabad/sector-81/index.html#bptp-park-81", keywords: ["bptp", "park", "park 81", "sector 81"] },
-    { name: "BPTP District 81 (Block B)", url: "faridabad/sector-81/index.html#bptp-district-81-block-b", keywords: ["bptp", "district", "district 81", "block b", "sector 81"] },
-    { name: "BPTP District 81 (Block C)", url: "faridabad/sector-81/index.html#bptp-district-81-block-c", keywords: ["bptp", "district", "district 81", "block c", "sector 81"] },
-    { name: "Vipul Plaza", url: "faridabad/sector-81-commercial/index.html#vipul-plaza", keywords: ["vipul", "plaza", "vipul plaza", "sector 81"] },
-    { name: "Amolik Plaza 81", url: "faridabad/sector-81-commercial/index.html#amolik-plaza-81", keywords: ["amolik", "plaza", "amolik plaza 81", "sector 81"] },
-
-    // Sector 82 Projects
-    { name: "Amolik Plaza 82", url: "faridabad/sector-82-commercial/index.html#amolik-plaza-82", keywords: ["amolik", "plaza", "amolik plaza 82", "sector 82"] },
-    { name: "Mansha Vega Street", url: "faridabad/sector-82-commercial/index.html#mansha-vega-street", keywords: ["mansha", "vega", "street", "vega street", "sector 82"] },
-    { name: "Florida-Auric", url: "faridabad/sector-82/index.html#florida-auric", keywords: ["florida", "auric", "florida auric", "sector 82"] },
-    { name: "Puri Pranayam", url: "faridabad/sector-82/index.html#puri-pranayam", keywords: ["puri", "pranayam", "puri pranayam", "sector 82"] },
-    { name: "SPR - Imperial Estate", url: "faridabad/sector-82/index.html#spr-imperial-estate", keywords: ["spr", "imperial", "estate", "imperial estate", "sector 82"] },
-    { name: "BPTP N Block Plot & SCO", url: "faridabad/sector-82/index.html#bptp-n-block-plot-sco", keywords: ["bptp", "n block", "block n", "sco", "sector 82"] },
-
-    // Sector 83 Projects
-    { name: "Godrej Retreat", url: "faridabad/sector-83/index.html#godrej-retreat", keywords: ["godrej", "retreat", "godrej retreat", "sector 83", "plots"] },
-    { name: "BPTP LM Block Plot", url: "faridabad/sector-83/index.html#bptp-lm-block", keywords: ["bptp", "lm block", "lm block plot", "sector 83"] },
-    { name: "BPTP M Block Plot (Sector 83)", url: "faridabad/sector-83/index.html#bptp-m-block-83", keywords: ["bptp", "m block", "m block plot", "sector 83"] },
-    { name: "Adore Arpnaam", url: "faridabad/sector-83/index.html#adore-arpnaam", keywords: ["adore", "arpnaam", "adore arpnaam", "sector 83"] },
-
-    // Sector 84 Projects
-    { name: "BPTP J Block Plot", url: "faridabad/sector-84/index.html#bptp-j-block", keywords: ["bptp", "j block", "j block plot", "sector 84"] },
-    { name: "BPTP K Block Plot", url: "faridabad/sector-84/index.html#bptp-k-block", keywords: ["bptp", "k block", "k block plot", "sector 84"] },
-    { name: "BPTP L Block Plot", url: "faridabad/sector-84/index.html#bptp-l-block", keywords: ["bptp", "l block", "l block plot", "sector 84"] },
-    { name: "BPTP M Block Plot (Sector 84)", url: "faridabad/sector-84/index.html#bptp-m-block-84", keywords: ["bptp", "m block", "m block plot", "sector 84"] },
-    { name: "BPTP District 84 (B Block)", url: "faridabad/sector-84/index.html#bptp-district-84-b", keywords: ["bptp", "district 84", "b block", "sector 84"] },
-    { name: "Puri Pratham", url: "faridabad/sector-84/index.html#puri-pratham", keywords: ["puri", "pratham", "puri pratham", "sector 84"] },
-    { name: "BPTP Elite Premium", url: "faridabad/sector-84/index.html#bptp-elite-premium", keywords: ["bptp", "elite", "premium", "elite premium", "sector 84"] },
-    { name: "Adore Legend 1", url: "faridabad/sector-84/index.html#adore-legend-1", keywords: ["adore", "legend", "adore legend 1", "sector 84"] },
-    { name: "Maulshree Heights (Arttech)", url: "faridabad/sector-84/index.html#maulshree-heights", keywords: ["maulshree", "heights", "maulshree heights", "arttech", "sector 84"] },
-
-    // Sector 84A Projects
-    { name: "Coral Park (New Stone)", url: "faridabad/sector-84a/index.html#coral-park", keywords: ["coral", "park", "coral park", "new stone", "sector 84a", "plots"] },
-
-    // Sector 85 Projects
-    { name: "BPTP A Block Plots", url: "faridabad/sector-85/index.html#bptp-a-block", keywords: ["bptp", "a block", "a block plots", "sector 85"] },
-    { name: "BPTP B Block Plots", url: "faridabad/sector-85/index.html#bptp-b-block", keywords: ["bptp", "b block", "b block plots", "sector 85"] },
-    { name: "BPTP C Block Plots", url: "faridabad/sector-85/index.html#bptp-c-block", keywords: ["bptp", "c block", "c block plots", "sector 85"] },
-    { name: "BPTP D Block Plots", url: "faridabad/sector-85/index.html#bptp-d-block", keywords: ["bptp", "d block", "d block plots", "sector 85"] },
-    { name: "BPTP E Block Plots", url: "faridabad/sector-85/index.html#bptp-e-block", keywords: ["bptp", "e block", "e block plots", "sector 85"] },
-    { name: "Adore Happy Home Grand", url: "faridabad/sector-85/index.html#adore-happy-home-grand", keywords: ["adore", "happy home", "happy home grand", "sector 85"] },
-    { name: "S3 Green Avenue", url: "faridabad/sector-85/index.html#s3-green-avenue", keywords: ["s3", "green avenue", "green", "avenue", "sector 85"] },
-    { name: "Amolik Sankalp", url: "faridabad/sector-85/index.html#amolik-sankalp", keywords: ["amolik", "sankalp", "amolik sankalp", "sector 85"] },
-
-    // Sector 86 Projects
-    { name: "Adore 1 Happy Home", url: "faridabad/sector-86/index.html#adore-1-happy-home", keywords: ["adore", "happy home", "adore 1 happy home", "sector 86"] },
-    { name: "Amolik Residency", url: "faridabad/sector-86/index.html#amolik-residency", keywords: ["amolik", "residency", "amolik residency", "sector 86"] },
-    { name: "Umang Summer Palms", url: "faridabad/sector-86/index.html#umang-summer-palms", keywords: ["umang", "summer palms", "palms", "sector 86"] },
-    { name: "Shiv Sai Ozones", url: "faridabad/sector-86/index.html#shiv-sai-ozones", keywords: ["shiv sai", "ozones", "shiv sai ozones", "sector 86"] },
-    { name: "Omaxe Heights", url: "faridabad/sector-86/index.html#omaxe-heights", keywords: ["omaxe", "heights", "omaxe heights", "sector 86"] },
-    { name: "Block A (Sector 86)", url: "faridabad/sector-86/index.html#block-a", keywords: ["block a", "bptp block a", "sector 86"] },
-    { name: "Vashisth Heights", url: "faridabad/sector-86/index.html#vashisth-heights", keywords: ["vashisth", "heights", "vashisth heights", "sector 86"] },
-
-    // Sector 87 Projects
-    { name: "SRS Royal Hills", url: "faridabad/sector-87/index.html#srs-royal-hills", keywords: ["srs", "royal hills", "srs royal hills", "sector 87"] },
-    { name: "SRS Pearl Floors", url: "faridabad/sector-87/index.html#srs-pearl-floors", keywords: ["srs", "pearl floors", "srs pearl floors", "sector 87"] },
-
-    // Sector 88 Projects
-    { name: "SRS Residency", url: "faridabad/sector-88/index.html#srs-residency", keywords: ["srs", "residency", "srs residency", "sector 88"] },
-    { name: "RPS Savana", url: "faridabad/sector-88/index.html#rps-savana", keywords: ["rps", "savana", "rps savana", "sector 88"] },
-    { name: "KST Whispering Heights", url: "faridabad/sector-88/index.html#kst-whispering-heights", keywords: ["kst", "whispering", "heights", "kst whispering heights", "sector 88"] },
-    { name: "B Block BPTP (Sector 88)", url: "faridabad/sector-88/index.html#bptp-block-b-sec-88", keywords: ["b block", "bptp b block", "bptp", "sector 88"] },
-    { name: "F Block BPTP (Sector 88)", url: "faridabad/sector-88/index.html#bptp-block-f-sec-88", keywords: ["f block", "bptp f block", "bptp", "sector 88"] },
-    { name: "TDI Soha SCO", url: "faridabad/sector-88/index.html#tdi-soha-sco", keywords: ["tdi", "soha", "sco", "tdi soha sco", "sector 88"] },
-    { name: "TDI Sainik Vihar", url: "faridabad/sector-88/index.html#tdi-sainik-vihar", keywords: ["tdi", "sainik vihar", "sainik vihar", "sector 88"] },
-    { name: "Emerald Heights", url: "faridabad/sector-88/index.html#emerald-heights", keywords: ["emerald", "heights", "emerald heights", "sector 88"] },
-    { name: "RPS Auria", url: "faridabad/sector-88/index.html#rps-auria", keywords: ["rps", "auria", "rps auria", "sector 88"] },
-    { name: "Amrit Homes", url: "faridabad/sector-88/index.html#amrit-homes", keywords: ["amrit", "homes", "amrit homes", "sector 88"] },
-
-    // Sector 89 Projects
-    { name: "TDI Plots", url: "faridabad/sector-89/index.html#tdi-plots", keywords: ["tdi", "plots", "tdi plots", "sector 89"] },
-    { name: "Puri AmanVilas", url: "faridabad/sector-89/index.html#puri-amanvilas", keywords: ["puri", "amanvilas", "puri amanvilas", "sector 89"] },
-    { name: "Luxuria", url: "faridabad/sector-89/index.html#luxuria", keywords: ["luxuria", "sector 89"] },
-    { name: "Honour Homes", url: "faridabad/sector-89/index.html#honour-homes", keywords: ["honour", "homes", "honour homes", "sector 89"] },
-    { name: "Piyush Heights", url: "faridabad/sector-89/index.html#piyush-heights", keywords: ["piyush", "heights", "piyush heights", "sector 89"] },
-    { name: "Adore Samridhi", url: "faridabad/sector-89/index.html#adore-samridhi", keywords: ["adore", "samridhi", "adore samridhi", "sector 89"] },
-    { name: "G Block BPTP (Sector 89)", url: "faridabad/sector-89/index.html#bptp-block-g-sec-89", keywords: ["g block", "bptp g block", "bptp", "sector 89"] },
-
-    // Sector 97-98 Projects
-    { name: "Amolik Blossom Wood", url: "faridabad/sector-97-98/index.html#amolik-blossom-wood", keywords: ["amolik", "blossom", "wood", "blossom wood", "sector 97", "sector 97-98"] },
-    { name: "Adore Smart City 1 & 2", url: "faridabad/sector-97-98/index.html#adore-smart-city", keywords: ["adore", "smart city", "smart city 1", "smart city 2", "sector 97", "sector 97-98"] },
-    { name: "Emerald Maple Floors", url: "faridabad/sector-97-98/index.html#emerald-maple-floors", keywords: ["emerald", "maple", "floors", "maple floors", "sector 97", "sector 97-98"] },
-    { name: "Anushree Green", url: "faridabad/sector-97-98/index.html#anushree-green", keywords: ["anushree", "green", "anushree green", "sector 97", "sector 97-98"] },
-    { name: "OMAXE City (Sector 97)", url: "faridabad/sector-97-98/index.html#omaxe-city", keywords: ["omaxe", "city", "omaxe city", "sector 97", "sector 97-98"] },
-    { name: "Amolik Concordia", url: "faridabad/sector-97-98/index.html#amolik-concordia", keywords: ["amolik", "concordia", "amolik concordia", "sector 97", "sector 97-98"] },
-    { name: "Ladimora", url: "faridabad/sector-97-98/index.html#ladimora", keywords: ["ladimora", "sector 97", "sector 97-98"] },
-    { name: "Soha Olive Town", url: "faridabad/sector-97-98/index.html#soha-olive-town", keywords: ["soha", "olive", "town", "olive town", "sector 98", "sector 97-98"] },
-    { name: "Neal City", url: "faridabad/sector-97-98/index.html#neal-city", keywords: ["neal", "city", "neal city", "sector 98", "sector 97-98"] },
-    { name: "Amolik Asterwood", url: "faridabad/sector-97-98/index.html#amolik-asterwood", keywords: ["amolik", "asterwood", "amolik asterwood", "sector 98", "sector 97-98"] },
-    { name: "Mansha Oaks", url: "faridabad/sector-97-98/index.html#mansha-oaks", keywords: ["mansha", "oaks", "mansha oaks", "sector 98", "sector 97-98"] },
-    { name: "Olive Homes", url: "faridabad/sector-97-98/index.html#olive-homes", keywords: ["olive", "homes", "olive homes", "sector 98", "sector 97-98"] },
-
-    // Sector 104 Projects
-    { name: "Adore Legend 3", url: "faridabad/sector-104/index.html#adore-legend-3", keywords: ["adore", "legend", "adore legend 3", "sector 104"] },
-
-    // Sector 106 Projects
-    { name: "Bhumika Small Plots & Floors", url: "faridabad/sector-106/index.html#bhumika-small-plots-floors", keywords: ["bhumika", "small plots", "bhumika plots", "floors", "sector 106"] },
-
-    // Sector 107 Projects
-    { name: "Anushree Plots", url: "faridabad/sector-107/index.html#anushree-plots", keywords: ["anushree", "plots", "anushree plots", "sector 107"] },
-
-    // Sector 110 Projects
-    { name: "Navraj Sector 110", url: "faridabad/sector-110/index.html#navraj-sec110", keywords: ["navraj", "navraj 110", "sector 110"] },
-    { name: "Mansha Orchid", url: "faridabad/sector-110/index.html#mansha-orchid", keywords: ["mansha", "orchid", "mansha orchid", "sector 110"] },
-
-    // Sector 113-114 Projects
-    { name: "Bhumika Plots (General Township)", url: "faridabad/sector-113-114/index.html#bhumika-plots-general", keywords: ["bhumika", "township", "general township", "bhumika plots", "sector 113", "sector 114"] },
-    { name: "Bhumika NILP Plots", url: "faridabad/sector-113-114/index.html#bhumika-nilp-plots", keywords: ["bhumika", "nilp", "nilp plots", "bhumika nilp", "sector 113", "sector 114"] },
-
-    // Sector 119 Projects
-    { name: "Adore Affordable (Sector 119)", url: "faridabad/sector-119/index.html#adore-affordable-sec119", keywords: ["adore", "affordable", "adore affordable", "sector 119"] },
-    { name: "LRG Affordable", url: "faridabad/sector-119/index.html#lrg-affordable", keywords: ["lrg", "affordable", "lrg affordable", "sector 119"] },
-
-    // Sector 121-123 Projects
-    { name: "Dameera Residences", url: "faridabad/sector-121-123/index.html#dameera-residences", keywords: ["dameera", "residences", "dameera residences", "sector 121", "sector 123", "sector 121-123"] },
-    { name: "Mansha OASIS", url: "faridabad/sector-121-123/index.html#mansha-oasis", keywords: ["mansha", "oasis", "mansha oasis", "sector 121", "sector 123", "sector 121-123"] },
-
-    // Sector 127 Residential Projects
-    { name: "Navraj Builder Floors", url: "faridabad/sector-127-residential/index.html#navraj-builder-floors", keywords: ["navraj", "builder floors", "floors", "navraj floors", "sector 127"] },
-
-    { name: "Gurugram Plots", url: "projects/gurugram.html", keywords: ["gurugram", "dwarka expressway", "dwarka", "gurgaon", "dwarka plots"] },
-    { name: "Sohna Plots", url: "projects/sohna.html", keywords: ["sohna", "sohna plots", "sohna road"] },
-    { name: "Prithla Plots", url: "projects/prithla.html", keywords: ["prithla", "prithla plots", "industrial plots"] },
-    { name: "Palwal Plots", url: "projects/palwal.html", keywords: ["palwal", "palwal plots"] },
-    { name: "Vrindavan Plots", url: "projects/vrindavan.html", keywords: ["vrindavan", "vrindavan plots", "mathura"] },
-    { name: "MATRABHUMI Vrindavan", url: "projects/matrabhumi.html", keywords: ["matrabhumi", "matrabhumi vrindavan", "flagship"] },
-    { name: "Ajeetgarh Plots", url: "projects/ajeetgarh.html", keywords: ["ajeetgarh", "ajeetgarh plots", "rajasthan"] },
-    { name: "Khatu Shyam Plots", url: "projects/khatu-shyam.html", keywords: ["khatu shyam", "khatu shyam plots", "rajasthan"] },
-    { name: "Garhmukteshwar Plots", url: "projects/garhmukteshwar.html", keywords: ["garhmukteshwar", "garhmukteshwar plots", "ganga"] },
-    { name: "Dholera Plots", url: "projects/dholera.html", keywords: ["dholera", "dholera plots", "gujarat"] },
-    { name: "Sector 82 Plots (Faridabad)", url: "projects/sector-82.html", keywords: ["sector 82", "sector 82 plots", "faridabad"] }
+    { name: "Bhumika The Icon", url: "faridabad/bhumika-the-icon/index.html#bhumika-the-icon", keywords: ["bhumika", "faridabad", "icon", "the"] },
+    { name: "FIT Plotted Enclave", url: "faridabad/fit/index.html#fit-plotted-enclave", keywords: ["enclave", "faridabad", "fit", "plotted"] },
+    { name: "IMT Industrial Plots", url: "faridabad/imt/index.html#imt-industrial-plots", keywords: ["faridabad", "imt", "industrial", "plots"] },
+    { name: "Navraj The Marq", url: "faridabad/navraj-the-marq/index.html#navraj-the-marq", keywords: ["armani", "armauis", "faridabad", "marq", "navraj", "the", "the marq"] },
+    { name: "Armani (Navraj The Marq)", url: "faridabad/nh2-mathura-road/index.html#armauis-navraj", keywords: ["armani", "armauis", "faridabad", "marq", "mathura", "navraj", "nh2", "road", "the", "the marq"] },
+    { name: "Lambhorghini Flats", url: "faridabad/nh2-mathura-road/index.html#lambhorghini-flats", keywords: ["faridabad", "flats", "lambhorghini", "mathura", "nh2", "road"] },
+    { name: "Mahindra Flats", url: "faridabad/nh2-mathura-road/index.html#mahindra-flats", keywords: ["faridabad", "flats", "mahindra", "mathura", "nh2", "road"] },
+    { name: "The Wisteria's (RPS)", url: "faridabad/nh2-mathura-road/index.html#the-wisterias-rps", keywords: ["faridabad", "mathura", "nh2", "road", "rps", "rps group", "the", "wisteria"] },
+    { name: "RPS 12th Avenue", url: "faridabad/rps-12th-avenue/index.html#rps-12th-avenue", keywords: ["12th", "avenue", "faridabad", "rps", "rps group"] },
+    { name: "Adore Legend 3", url: "faridabad/sector-104/index.html#adore-legend-3", keywords: ["104", "adore", "adore realtech", "faridabad", "legend", "sector"] },
+    { name: "Bhumika Small Plots & Floors", url: "faridabad/sector-106/index.html#bhumika-small-plots-floors", keywords: ["106", "bhumika", "faridabad", "floors", "plots", "sector", "small"] },
+    { name: "Anushree Plots", url: "faridabad/sector-107/index.html#anushree-plots", keywords: ["107", "anushree", "faridabad", "plots", "sector"] },
+    { name: "Mansha Orchid", url: "faridabad/sector-110/index.html#mansha-orchid", keywords: ["110", "faridabad", "mansha", "orchid", "sector"] },
+    { name: "Navraj Sector 110", url: "faridabad/sector-110/index.html#navraj-sec110", keywords: ["110", "faridabad", "navraj", "sector"] },
+    { name: "Bhumika NILP Plots", url: "faridabad/sector-113-114/index.html#bhumika-nilp-plots", keywords: ["113", "114", "bhumika", "faridabad", "nilp", "plots", "sector"] },
+    { name: "Bhumika Plots (General Township)", url: "faridabad/sector-113-114/index.html#bhumika-plots-general", keywords: ["113", "114", "bhumika", "faridabad", "general", "plots", "sector", "township"] },
+    { name: "Adore Affordable", url: "faridabad/sector-119/index.html#adore-affordable-sec119", keywords: ["119", "adore", "adore realtech", "affordable", "faridabad", "sector"] },
+    { name: "LRG Affordable", url: "faridabad/sector-119/index.html#lrg-affordable", keywords: ["119", "affordable", "faridabad", "lrg", "sector"] },
+    { name: "Dameera Residences", url: "faridabad/sector-121-123/index.html#dameera-residences", keywords: ["121", "123", "dameera", "faridabad", "residences", "sector"] },
+    { name: "Mansha OASIS", url: "faridabad/sector-121-123/index.html#mansha-oasis", keywords: ["121", "123", "faridabad", "mansha", "oasis", "sector"] },
+    { name: "Navraj Builder Floors", url: "faridabad/sector-127-residential/index.html#navraj-builder-floors", keywords: ["127", "builder", "faridabad", "floors", "navraj", "residential", "sector"] },
+    { name: "Navraj Industrial Plot", url: "faridabad/sector-127/index.html#navraj-industrial-plot", keywords: ["127", "faridabad", "industrial", "navraj", "plot", "sector"] },
+    { name: "Adore Prima 1", url: "faridabad/sector-72-73-residential/index.html#adore-prime-1", keywords: ["72", "73", "adore", "adore realtech", "faridabad", "prima", "residential", "sector"] },
+    { name: "Adore Prima 2", url: "faridabad/sector-72-73-residential/index.html#adore-prime-2", keywords: ["72", "73", "adore", "adore realtech", "faridabad", "prima", "residential", "sector"] },
+    { name: "Adore Business City", url: "faridabad/sector-72-73/index.html#adore-business-city", keywords: ["72", "73", "adore", "adore realtech", "business", "city", "faridabad", "sector"] },
+    { name: "Adore Pride", url: "faridabad/sector-75/index.html#adore-pride", keywords: ["75", "adore", "adore realtech", "faridabad", "pride", "sector"] },
+    { name: "P Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-p", keywords: ["75", "blocks", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "Q Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-q", keywords: ["75", "blocks", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "R Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-r", keywords: ["75", "blocks", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "S Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-s", keywords: ["75", "blocks", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "T Blocks BPTP", url: "faridabad/sector-75/index.html#bptp-block-t", keywords: ["75", "blocks", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "BPTP Resort", url: "faridabad/sector-75/index.html#bptp-resort", keywords: ["75", "bptp", "bptp plots", "faridabad", "resort", "sector"] },
+    { name: "Terra Lavinium", url: "faridabad/sector-75/index.html#terra-lavinium", keywords: ["75", "faridabad", "lavinium", "sector", "terra"] },
+    { name: "U Block BPTP", url: "faridabad/sector-76/index.html#bptp-block-u", keywords: ["76", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "V Block BPTP", url: "faridabad/sector-76/index.html#bptp-block-v", keywords: ["76", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "W Block BPTP", url: "faridabad/sector-76/index.html#bptp-block-w", keywords: ["76", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "X Block BPTP", url: "faridabad/sector-76/index.html#bptp-block-x", keywords: ["76", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "Y Block BPTP", url: "faridabad/sector-76/index.html#bptp-block-y", keywords: ["76", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "Palm Residency", url: "faridabad/sector-76/index.html#palm-residency", keywords: ["76", "faridabad", "palm", "residency", "sector"] },
+    { name: "Park Floors 2", url: "faridabad/sector-76/index.html#park-floors-2", keywords: ["76", "faridabad", "floors", "park", "sector"] },
+    { name: "PA Block BPTP", url: "faridabad/sector-77/index.html#bptp-block-pa", keywords: ["77", "block", "bptp", "bptp plots", "faridabad", "pa", "sector"] },
+    { name: "PB Block BPTP", url: "faridabad/sector-77/index.html#bptp-block-pb", keywords: ["77", "block", "bptp", "bptp plots", "faridabad", "pb", "sector"] },
+    { name: "PC Block BPTP", url: "faridabad/sector-77/index.html#bptp-block-pc", keywords: ["77", "block", "bptp", "bptp plots", "faridabad", "pc", "sector"] },
+    { name: "PD Block BPTP", url: "faridabad/sector-77/index.html#bptp-block-pd", keywords: ["77", "block", "bptp", "bptp plots", "faridabad", "pd", "sector"] },
+    { name: "PE Block BPTP", url: "faridabad/sector-77/index.html#bptp-block-pe", keywords: ["77", "block", "bptp", "bptp plots", "faridabad", "pe", "sector"] },
+    { name: "BPTP Park Land Pride", url: "faridabad/sector-77/index.html#bptp-park-land-pride", keywords: ["77", "bptp", "bptp plots", "faridabad", "land", "park", "pride", "sector"] },
+    { name: "KLJ Green's", url: "faridabad/sector-77/index.html#klj-green", keywords: ["77", "faridabad", "green", "klj", "sector"] },
+    { name: "KLJ JALWAYU Vihar", url: "faridabad/sector-77/index.html#klj-jalwayu-vihar", keywords: ["77", "faridabad", "jalwayu", "klj", "sector", "vihar"] },
+    { name: "KLJ Platinum Floors", url: "faridabad/sector-77/index.html#klj-platinum-floors", keywords: ["77", "faridabad", "floors", "klj", "platinum", "sector"] },
+    { name: "KLJ Platinum Height", url: "faridabad/sector-77/index.html#klj-platinum-height", keywords: ["77", "faridabad", "height", "klj", "platinum", "sector"] },
+    { name: "Pride Floors", url: "faridabad/sector-77/index.html#pride-floors", keywords: ["77", "faridabad", "floors", "pride", "sector"] },
+    { name: "Adore Broadway", url: "faridabad/sector-78/index.html#adore-broadway", keywords: ["78", "adore", "adore realtech", "broadway", "faridabad", "sector"] },
+    { name: "Habitat Residences", url: "faridabad/sector-78/index.html#habitat-residences", keywords: ["78", "faridabad", "habitat", "residences", "sector"] },
+    { name: "Habitat Sector 78", url: "faridabad/sector-78/index.html#habitat-sector-78", keywords: ["78", "faridabad", "habitat", "sector"] },
+    { name: "OMAXE Spa Village", url: "faridabad/sector-78/index.html#omaxe-spa-village", keywords: ["78", "faridabad", "omaxe", "sector", "spa", "village"] },
+    { name: "Capital SCO", url: "faridabad/sector-79-commercial/index.html#capital-sco", keywords: ["79", "capital", "commercial", "faridabad", "sco", "sector"] },
+    { name: "Hi Fun Mall", url: "faridabad/sector-79-commercial/index.html#hi-fun-mall", keywords: ["79", "commercial", "faridabad", "fun", "hi", "mall", "sector"] },
+    { name: "OMAXE Royal Residency", url: "faridabad/sector-79-commercial/index.html#omaxe-royal-residency", keywords: ["79", "commercial", "faridabad", "omaxe", "residency", "royal", "sector"] },
+    { name: "OMAXE Sun", url: "faridabad/sector-79-commercial/index.html#omaxe-sun", keywords: ["79", "commercial", "faridabad", "omaxe", "sector", "sun"] },
+    { name: "Universal SCO (Auric)", url: "faridabad/sector-79-commercial/index.html#universal-sco-auric", keywords: ["79", "auric", "commercial", "faridabad", "sco", "sector", "universal"] },
+    { name: "World Street SCO", url: "faridabad/sector-79-commercial/index.html#world-street-sco", keywords: ["79", "commercial", "faridabad", "sco", "sector", "street", "world"] },
+    { name: "Ansal Crown", url: "faridabad/sector-80/index.html#ansal-crown", keywords: ["80", "ansal", "crown", "faridabad", "sector"] },
+    { name: "BPTP Discovery Park Phase 1 (2&3 BHK)", url: "faridabad/sector-80/index.html#bptp-discovery-park-phase-1", keywords: ["80", "bhk", "bptp", "bptp plots", "discovery", "faridabad", "park", "phase", "sector"] },
+    { name: "BPTP Discovery Park Phase 2 (Duplex)", url: "faridabad/sector-80/index.html#bptp-discovery-park-phase-2", keywords: ["80", "bptp", "bptp plots", "discovery", "duplex", "faridabad", "park", "phase", "sector"] },
+    { name: "BPTP Sky Nest (3&4 BHK)", url: "faridabad/sector-80/index.html#bptp-sky-nest", keywords: ["80", "bhk", "bptp", "bptp plots", "faridabad", "nest", "sector", "sky"] },
+    { name: "Z Block BPTP", url: "faridabad/sector-80/index.html#z-block", keywords: ["80", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "Amolik Plaza 81", url: "faridabad/sector-81-commercial/index.html#amolik-plaza-81", keywords: ["81", "amolik", "amolik plots", "commercial", "faridabad", "plaza", "sector"] },
+    { name: "Puri 81 Business Hub", url: "faridabad/sector-81-commercial/index.html#puri-81-business-hub", keywords: ["81", "business", "commercial", "faridabad", "hub", "puri", "puri constructions", "sector"] },
+    { name: "Puri 81 High Street Mall", url: "faridabad/sector-81-commercial/index.html#puri-81-high-street-mall", keywords: ["81", "commercial", "faridabad", "high", "mall", "puri", "puri constructions", "sector", "street"] },
+    { name: "Vipul Plaza", url: "faridabad/sector-81-commercial/index.html#vipul-plaza", keywords: ["81", "commercial", "faridabad", "plaza", "sector", "vipul"] },
+    { name: "BPTP District 81 (Block B)", url: "faridabad/sector-81/index.html#bptp-district-81-block-b", keywords: ["81", "block", "bptp", "bptp plots", "district", "faridabad", "sector"] },
+    { name: "BPTP District 81 (Block C)", url: "faridabad/sector-81/index.html#bptp-district-81-block-c", keywords: ["81", "block", "bptp", "bptp plots", "district", "faridabad", "sector"] },
+    { name: "BPTP Eden-Estate Plot", url: "faridabad/sector-81/index.html#bptp-eden-estate-plot", keywords: ["81", "bptp", "bptp plots", "eden", "estate", "faridabad", "plot", "sector"] },
+    { name: "BPTP Park 81", url: "faridabad/sector-81/index.html#bptp-park-81", keywords: ["81", "bptp", "bptp plots", "faridabad", "park", "sector"] },
+    { name: "Puri Anand Villa", url: "faridabad/sector-81/index.html#puri-anand-villa", keywords: ["81", "anand", "faridabad", "puri", "puri constructions", "sector", "villa"] },
+    { name: "Puri VIP Floor", url: "faridabad/sector-81/index.html#puri-vip-floor", keywords: ["81", "faridabad", "floor", "puri", "puri constructions", "sector", "vip"] },
+    { name: "Amolik Plaza 82", url: "faridabad/sector-82-commercial/index.html#amolik-plaza-82", keywords: ["82", "amolik", "amolik plots", "commercial", "faridabad", "plaza", "sector"] },
+    { name: "Mansha Vega Street", url: "faridabad/sector-82-commercial/index.html#mansha-vega-street", keywords: ["82", "commercial", "faridabad", "mansha", "sector", "street", "vega"] },
+    { name: "BPTP N Block Plot & SCO", url: "faridabad/sector-82/index.html#bptp-n-block-plot-sco", keywords: ["82", "block", "bptp", "bptp plots", "faridabad", "plot", "sco", "sector"] },
+    { name: "Florida-Auric", url: "faridabad/sector-82/index.html#florida-auric", keywords: ["82", "auric", "faridabad", "florida", "sector"] },
+    { name: "Puri Pranayam", url: "faridabad/sector-82/index.html#puri-pranayam", keywords: ["82", "faridabad", "pranayam", "puri", "puri constructions", "sector"] },
+    { name: "SPR - Imperial Estate", url: "faridabad/sector-82/index.html#spr-imperial-estate", keywords: ["82", "estate", "faridabad", "imperial", "sector", "spr"] },
+    { name: "Adore Arpnaam", url: "faridabad/sector-83/index.html#adore-arpnaam", keywords: ["83", "adore", "adore realtech", "arpnaam", "faridabad", "sector"] },
+    { name: "BPTP LM Block Plot", url: "faridabad/sector-83/index.html#bptp-lm-block", keywords: ["83", "block", "bptp", "bptp plots", "faridabad", "lm", "plot", "sector"] },
+    { name: "BPTP M Block Plot", url: "faridabad/sector-83/index.html#bptp-m-block-83", keywords: ["83", "block", "bptp", "bptp plots", "faridabad", "plot", "sector"] },
+    { name: "Godrej Retreat", url: "faridabad/sector-83/index.html#godrej-retreat", keywords: ["83", "faridabad", "godrej", "retreat", "sector"] },
+    { name: "Adore Legend 1", url: "faridabad/sector-84/index.html#adore-legend-1", keywords: ["84", "adore", "adore realtech", "faridabad", "legend", "sector"] },
+    { name: "BPTP District 84 (B Block)", url: "faridabad/sector-84/index.html#bptp-district-84-b", keywords: ["84", "block", "bptp", "bptp plots", "district", "faridabad", "sector"] },
+    { name: "BPTP Elite Premium", url: "faridabad/sector-84/index.html#bptp-elite-premium", keywords: ["84", "bptp", "bptp plots", "elite", "faridabad", "premium", "sector"] },
+    { name: "BPTP J Block Plot", url: "faridabad/sector-84/index.html#bptp-j-block", keywords: ["84", "block", "bptp", "bptp plots", "faridabad", "plot", "sector"] },
+    { name: "BPTP K Block Plot", url: "faridabad/sector-84/index.html#bptp-k-block", keywords: ["84", "block", "bptp", "bptp plots", "faridabad", "plot", "sector"] },
+    { name: "BPTP L Block Plot", url: "faridabad/sector-84/index.html#bptp-l-block", keywords: ["84", "block", "bptp", "bptp plots", "faridabad", "plot", "sector"] },
+    { name: "BPTP M Block Plot", url: "faridabad/sector-84/index.html#bptp-m-block-84", keywords: ["84", "block", "bptp", "bptp plots", "faridabad", "plot", "sector"] },
+    { name: "Maulshree Heights (Arttech)", url: "faridabad/sector-84/index.html#maulshree-heights", keywords: ["84", "arttech", "faridabad", "heights", "maulshree", "sector"] },
+    { name: "Puri Pratham", url: "faridabad/sector-84/index.html#puri-pratham", keywords: ["84", "faridabad", "pratham", "puri", "puri constructions", "sector"] },
+    { name: "Coral Park (New Stone)", url: "faridabad/sector-84a/index.html#coral-park", keywords: ["84a", "coral", "faridabad", "new", "park", "sector", "stone"] },
+    { name: "Adore Happy Home Grand", url: "faridabad/sector-85/index.html#adore-happy-home-grand", keywords: ["85", "adore", "adore realtech", "faridabad", "grand", "happy", "home", "sector"] },
+    { name: "Amolik Sankalp", url: "faridabad/sector-85/index.html#amolik-sankalp", keywords: ["85", "amolik", "amolik plots", "faridabad", "sankalp", "sector"] },
+    { name: "BPTP A Block Plots", url: "faridabad/sector-85/index.html#bptp-a-block", keywords: ["85", "block", "bptp", "bptp plots", "faridabad", "plots", "sector"] },
+    { name: "BPTP B Block Plots", url: "faridabad/sector-85/index.html#bptp-b-block", keywords: ["85", "block", "bptp", "bptp plots", "faridabad", "plots", "sector"] },
+    { name: "BPTP C Block Plots", url: "faridabad/sector-85/index.html#bptp-c-block", keywords: ["85", "block", "bptp", "bptp plots", "faridabad", "plots", "sector"] },
+    { name: "BPTP D Block Plots", url: "faridabad/sector-85/index.html#bptp-d-block", keywords: ["85", "block", "bptp", "bptp plots", "faridabad", "plots", "sector"] },
+    { name: "BPTP E Block Plots", url: "faridabad/sector-85/index.html#bptp-e-block", keywords: ["85", "block", "bptp", "bptp plots", "faridabad", "plots", "sector"] },
+    { name: "S3 Green Avenue", url: "faridabad/sector-85/index.html#s3-green-avenue", keywords: ["85", "avenue", "faridabad", "green", "s3", "sector"] },
+    { name: "Adore 1 Happy Home", url: "faridabad/sector-86/index.html#adore-1-happy-home", keywords: ["86", "adore", "adore realtech", "faridabad", "happy", "home", "sector"] },
+    { name: "Amolik Residency", url: "faridabad/sector-86/index.html#amolik-residency", keywords: ["86", "amolik", "amolik plots", "faridabad", "residency", "sector"] },
+    { name: "Block A (Sector 86)", url: "faridabad/sector-86/index.html#block-a", keywords: ["86", "block", "faridabad", "sector"] },
+    { name: "Omaxe Heights", url: "faridabad/sector-86/index.html#omaxe-heights", keywords: ["86", "faridabad", "heights", "omaxe", "sector"] },
+    { name: "Shiv Sai Ozones", url: "faridabad/sector-86/index.html#shiv-sai-ozones", keywords: ["86", "faridabad", "ozones", "sai", "sector", "shiv"] },
+    { name: "Umang Summer Palms", url: "faridabad/sector-86/index.html#umang-summer-palms", keywords: ["86", "faridabad", "palms", "sector", "summer", "umang"] },
+    { name: "Vashisth Heights", url: "faridabad/sector-86/index.html#vashisth-heights", keywords: ["86", "faridabad", "heights", "sector", "vashisth"] },
+    { name: "SRS Pearl Floors", url: "faridabad/sector-87/index.html#srs-pearl-floors", keywords: ["87", "faridabad", "floors", "pearl", "sector", "srs"] },
+    { name: "SRS Royal Hills", url: "faridabad/sector-87/index.html#srs-royal-hills", keywords: ["87", "faridabad", "hills", "royal", "sector", "srs"] },
+    { name: "Amrit Homes", url: "faridabad/sector-88/index.html#amrit-homes", keywords: ["88", "amrit", "faridabad", "homes", "sector"] },
+    { name: "B Block BPTP", url: "faridabad/sector-88/index.html#bptp-block-b-sec-88", keywords: ["88", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "F Block BPTP", url: "faridabad/sector-88/index.html#bptp-block-f-sec-88", keywords: ["88", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "Emerald Heights", url: "faridabad/sector-88/index.html#emerald-heights", keywords: ["88", "emerald", "faridabad", "heights", "sector"] },
+    { name: "KST Whispering Heights", url: "faridabad/sector-88/index.html#kst-whispering-heights", keywords: ["88", "faridabad", "heights", "kst", "sector", "whispering"] },
+    { name: "RPS Auria", url: "faridabad/sector-88/index.html#rps-auria", keywords: ["88", "auria", "faridabad", "rps", "rps group", "sector"] },
+    { name: "RPS Palm", url: "faridabad/sector-88/index.html#rps-palm", keywords: ["88", "faridabad", "palm", "rps", "rps group", "sector"] },
+    { name: "RPS Palm Drive", url: "faridabad/sector-88/index.html#rps-palm-drive", keywords: ["88", "drive", "faridabad", "palm", "rps", "rps group", "sector"] },
+    { name: "RPS Savana", url: "faridabad/sector-88/index.html#rps-savana", keywords: ["88", "faridabad", "rps", "rps group", "savana", "sector"] },
+    { name: "SRS Residency", url: "faridabad/sector-88/index.html#srs-residency", keywords: ["88", "faridabad", "residency", "sector", "srs"] },
+    { name: "TDI Sainik Vihar", url: "faridabad/sector-88/index.html#tdi-sainik-vihar", keywords: ["88", "faridabad", "sainik", "sector", "tdi", "vihar"] },
+    { name: "TDI Soha SCO", url: "faridabad/sector-88/index.html#tdi-soha-sco", keywords: ["88", "faridabad", "sco", "sector", "soha", "tdi"] },
+    { name: "Adore Samridhi", url: "faridabad/sector-89/index.html#adore-samridhi", keywords: ["89", "adore", "adore realtech", "faridabad", "samridhi", "sector"] },
+    { name: "G Block BPTP", url: "faridabad/sector-89/index.html#bptp-block-g-sec-89", keywords: ["89", "block", "bptp", "bptp plots", "faridabad", "sector"] },
+    { name: "Honour Homes", url: "faridabad/sector-89/index.html#honour-homes", keywords: ["89", "faridabad", "homes", "honour", "sector"] },
+    { name: "Luxuria", url: "faridabad/sector-89/index.html#luxuria", keywords: ["89", "faridabad", "luxuria", "sector"] },
+    { name: "Piyush Heights", url: "faridabad/sector-89/index.html#piyush-heights", keywords: ["89", "faridabad", "heights", "piyush", "sector"] },
+    { name: "Puri AmanVilas", url: "faridabad/sector-89/index.html#puri-amanvilas", keywords: ["89", "amanvilas", "faridabad", "puri", "puri constructions", "sector"] },
+    { name: "TDI Plots", url: "faridabad/sector-89/index.html#tdi-plots", keywords: ["89", "faridabad", "plots", "sector", "tdi"] },
+    { name: "Adore Smart City 1 & 2", url: "faridabad/sector-97-98/index.html#adore-smart-city", keywords: ["97", "98", "adore", "adore realtech", "city", "faridabad", "sector", "smart"] },
+    { name: "Amolik Asterwood", url: "faridabad/sector-97-98/index.html#amolik-asterwood", keywords: ["97", "98", "amolik", "amolik plots", "asterwood", "faridabad", "sector"] },
+    { name: "Amolik Blossom Wood", url: "faridabad/sector-97-98/index.html#amolik-blossom-wood", keywords: ["97", "98", "amolik", "amolik plots", "blossom", "faridabad", "sector", "wood"] },
+    { name: "Amolik Concordia", url: "faridabad/sector-97-98/index.html#amolik-concordia", keywords: ["97", "98", "amolik", "amolik plots", "concordia", "faridabad", "sector"] },
+    { name: "Anushree Green", url: "faridabad/sector-97-98/index.html#anushree-green", keywords: ["97", "98", "anushree", "faridabad", "green", "sector"] },
+    { name: "Emerald Maple Floors", url: "faridabad/sector-97-98/index.html#emerald-maple-floors", keywords: ["97", "98", "emerald", "faridabad", "floors", "maple", "sector"] },
+    { name: "Ladimora", url: "faridabad/sector-97-98/index.html#ladimora", keywords: ["97", "98", "faridabad", "ladimora", "sector"] },
+    { name: "Mansha Oaks", url: "faridabad/sector-97-98/index.html#mansha-oaks", keywords: ["97", "98", "faridabad", "mansha", "oaks", "sector"] },
+    { name: "Neal City", url: "faridabad/sector-97-98/index.html#neal-city", keywords: ["97", "98", "city", "faridabad", "neal", "sector"] },
+    { name: "Olive Homes", url: "faridabad/sector-97-98/index.html#olive-homes", keywords: ["97", "98", "faridabad", "homes", "olive", "sector"] },
+    { name: "OMAXE City", url: "faridabad/sector-97-98/index.html#omaxe-city", keywords: ["97", "98", "city", "faridabad", "omaxe", "sector"] },
+    { name: "Soha Olive Town", url: "faridabad/sector-97-98/index.html#soha-olive-town", keywords: ["97", "98", "faridabad", "olive", "sector", "soha", "town"] },
+    { name: "Ajeetgarh Residential Plots", url: "projects/ajeetgarh.html#ajeetgarh", keywords: ["ajeetgarh", "plots", "projects", "residential"] },
+    { name: "Dholera Smart City Plots", url: "projects/dholera.html#dholera", keywords: ["city", "dholera", "plots", "projects", "smart"] },
+    { name: "Garhmukteshwar Plots", url: "projects/garhmukteshwar.html#garhmukteshwar", keywords: ["garhmukteshwar", "plots", "projects"] },
+    { name: "Gurugram Plots", url: "projects/gurugram.html#gurugram", keywords: ["gurugram", "plots", "projects"] },
+    { name: "Khatu Shyam Plots", url: "projects/khatu-shyam.html#khatu-shyam", keywords: ["khatu", "plots", "projects", "shyam"] },
+    { name: "Palwal Residential Plots", url: "projects/palwal.html#palwal", keywords: ["palwal", "plots", "projects", "residential"] },
+    { name: "Prithla Residential Plots", url: "projects/prithla.html#prithla", keywords: ["plots", "prithla", "projects", "residential"] },
+    { name: "Upcoming Plots Sector 82", url: "projects/sector-82.html#faridabad", keywords: ["82", "plots", "projects", "sector", "upcoming"] },
+    { name: "Sohna Plots", url: "projects/sohna.html#sohna", keywords: ["plots", "projects", "sohna"] },
+    { name: "Vrindavan Residential Plots", url: "projects/vrindavan.html#vrindavan", keywords: ["plots", "projects", "residential", "vrindavan"] },
   ];
  
   function getLocText(url) {
+    if (url.includes('sector-72-73')) return 'Sector 72-73, Faridabad';
+    if (url.includes('sector-104')) return 'Sector 104, Faridabad';
+    if (url.includes('sector-106')) return 'Sector 106, Faridabad';
+    if (url.includes('sector-107')) return 'Sector 107, Faridabad';
+    if (url.includes('sector-110')) return 'Sector 110, Faridabad';
+    if (url.includes('sector-113-114') || url.includes('bhumika-the-icon') || url.includes('navraj-the-marq')) return 'Sector 113-114, Faridabad';
+    if (url.includes('sector-119')) return 'Sector 119, Faridabad';
+    if (url.includes('sector-121-123')) return 'Sector 121-123, Faridabad';
+    if (url.includes('sector-127')) return 'Sector 127, Faridabad';
+    if (url.includes('nh2-mathura-road')) return 'NH2 Mathura Road, Faridabad';
+    if (url.includes('rps-12th-avenue')) return 'Sector 88, Faridabad';
+    if (url.includes('imt')) return 'IMT Faridabad';
     if (url.includes('sector-75')) return 'Sector 75, Faridabad';
     if (url.includes('sector-76')) return 'Sector 76, Faridabad';
     if (url.includes('sector-77')) return 'Sector 77, Faridabad';
@@ -1005,7 +983,9 @@ function openBrochureModal(projectName, pdfName) {
   
   if (lower.includes('wisteria')) resolvedPdf = 'The_Wisterias_rps.pdf';
   else if (lower.includes('bhumika')) resolvedPdf = 'bhumika_brochure.pdf';
+  else if (lower.includes('navraj') && (lower.includes('floor') || lower.includes('127'))) resolvedPdf = 'navraj builder floor sec 127.pdf';
   else if (lower.includes('navraj')) resolvedPdf = 'navraj_the_marq_brochure.pdf';
+  else if (lower.includes('dameera')) resolvedPdf = 'Dameera City Brochure sec 121.pdf';
   else if (lower.includes('rps palm drive')) resolvedPdf = 'rps_palm_drive_sector_88.pdf';
   else if (lower.includes('rps palm')) resolvedPdf = 'rps_palm_sector_88.pdf';
   else if (lower.includes('tdi soha')) resolvedPdf = 'tdi_soha_sco_sector_88.pdf';

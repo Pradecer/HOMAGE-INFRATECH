@@ -84,7 +84,8 @@ const FARIDABAD_BROCHURE_CATALOG = {
   'the-wisterias-rps':          { label: 'The Wisteria\'s (RPS)',      file: '../../brochure/The_Wisterias_rps.pdf' },
   'bhumika-the-icon':          { label: 'Bhumika The Icon',          file: '../../brochure/bhumika_brochure.pdf' },
   'bhumika':                   { label: 'Bhumika Group Projects',    file: '../../brochure/bhumika_brochure.pdf' },
-  'dameera':                   { label: 'Dameera Residences',        file: '../../brochure/Dameera sec121.pdf' },
+  'dameera':                   { label: 'Dameera Residences',        file: '../../brochure/Dameera City Brochure sec 121.pdf' },
+  'navraj-builder-floors':     { label: 'Navraj Builder Floors',     file: '../../brochure/navraj builder floor sec 127.pdf' },
   'coral-park':                { label: 'Coral Park (New Stone)',    file: '../../brochure/Coral Park ( New Stone ) sector \ufeffnamaste A.pdf' },
   'world-street-sco':          { label: 'World Street SCO',          file: '../../brochure/World Street SCO sector 79.pdf' },
 
