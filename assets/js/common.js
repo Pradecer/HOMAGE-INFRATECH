@@ -982,6 +982,7 @@ function openBrochureModal(projectName, pdfName) {
   const lower = (pdfName || '').toLowerCase();
   
   if (lower.includes('wisteria')) resolvedPdf = 'The_Wisterias_rps.pdf';
+  else if (lower.includes('bhumika') && (lower.includes('the icon') || lower.includes('the_icon') || lower.includes('icon'))) resolvedPdf = 'bhumika the icon.pdf';
   else if (lower.includes('bhumika')) resolvedPdf = 'bhumika_brochure.pdf';
   else if (lower.includes('navraj') && (lower.includes('floor') || lower.includes('127'))) resolvedPdf = 'navraj builder floor sec 127.pdf';
   else if (lower.includes('navraj')) resolvedPdf = 'navraj_the_marq_brochure.pdf';
@@ -989,6 +990,8 @@ function openBrochureModal(projectName, pdfName) {
   else if (lower.includes('legend 1') || (lower.includes('legend') && lower.includes('84'))) resolvedPdf = 'adore legend 1 sec 84.pdf';
   else if (lower.includes('concordia')) resolvedPdf = 'amolik concordia sec 97-98.pdf';
   else if (lower.includes('preals') || lower.includes('pearl floor') || (lower.includes('srs') && lower.includes('87'))) resolvedPdf = 'srs preals floors sec 87.pdf';
+  else if (lower.includes('florida') || lower.includes('auric')) resolvedPdf = 'Florida Auric sec 82.pdf';
+  else if (lower.includes('sainik vihar') || lower.includes('sanik vihar')) resolvedPdf = 'TDI Sanik Vihar sec 88.pdf';
   else if (lower.includes('rps palm drive')) resolvedPdf = 'rps_palm_drive_sector_88.pdf';
   else if (lower.includes('rps palm')) resolvedPdf = 'rps_palm_sector_88.pdf';
   else if (lower.includes('tdi soha')) resolvedPdf = 'tdi_soha_sco_sector_88.pdf';
