@@ -470,8 +470,8 @@ function initNavSearch() {
   
   const allProjects = [
     // Sector 72-73 Residential Projects
-    { name: "Adore Prime 1", url: "faridabad/sector-72-73-residential/index.html#adore-prime-1", keywords: ["adore", "prime", "prime 1", "adore prime 1", "sector 72", "sector 73", "sector 72-73"] },
-    { name: "Adore Prime 2", url: "faridabad/sector-72-73-residential/index.html#adore-prime-2", keywords: ["adore", "prime", "prime 2", "adore prime 2", "sector 72", "sector 73", "sector 72-73"] },
+    { name: "Adore Prima 1", url: "faridabad/sector-72-73-residential/index.html#adore-prime-1", keywords: ["adore", "prima", "prima 1", "adore prima 1", "prime", "prime 1", "adore prime 1", "sector 72", "sector 73", "sector 72-73"] },
+    { name: "Adore Prima 2", url: "faridabad/sector-72-73-residential/index.html#adore-prime-2", keywords: ["adore", "prima", "prima 2", "adore prima 2", "prime", "prime 2", "adore prime 2", "sector 72", "sector 73", "sector 72-73"] },
 
     { name: "BPTP Resort", url: "faridabad/sector-75/index.html#bptp-resort", keywords: ["resort", "bptp resort", "sector 75", "luxury"] },
     { name: "Adore Pride", url: "faridabad/sector-75/index.html#adore-pride", keywords: ["adore", "adore pride", "pride", "sector 75"] },
@@ -496,7 +496,7 @@ function initNavSearch() {
     { name: "PD Blocks BPTP", url: "faridabad/sector-77/index.html#bptp-block-pd", keywords: ["block pd", "pd block", "bptp pd", "sector 77"] },
     { name: "PE Blocks BPTP", url: "faridabad/sector-77/index.html#bptp-block-pe", keywords: ["block pe", "pe block", "bptp pe", "sector 77"] },
     { name: "KLJ Platinum Height", url: "faridabad/sector-77/index.html#klj-platinum-height", keywords: ["klj", "platinum", "height", "klj platinum", "sector 77"] },
-    { name: "KLJ Green", url: "faridabad/sector-77/index.html#klj-green", keywords: ["klj green", "green", "klj", "sector 77"] },
+    { name: "KLJ Green's", url: "faridabad/sector-77/index.html#klj-green", keywords: ["klj green", "klj green's", "green", "klj", "sector 77"] },
     { name: "KLJ Platinum Floors", url: "faridabad/sector-77/index.html#klj-platinum-floors", keywords: ["klj floors", "platinum floors", "klj platinum floors", "sector 77"] },
     { name: "KLJ JALWAYU Vihar", url: "faridabad/sector-77/index.html#klj-jalwayu-vihar", keywords: ["jalwayu", "jalwayu vihar", "klj jalwayu", "sector 77"] },
     

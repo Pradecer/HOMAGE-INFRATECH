@@ -90,8 +90,8 @@ const FARIDABAD_BROCHURE_CATALOG = {
   'world-street-sco':          { label: 'World Street SCO',          file: '../../brochure/World Street SCO sector 79.pdf' },
 
   /* ---- Sector 72-73 Residential ---- */
-  'adore-prime-1':             { label: 'Adore Prime 1',             file: '../../brochure/Adore Prima Se 72 & 73.pdf' },
-  'adore-prime-2':             { label: 'Adore Prime 2',             file: '../../brochure/Adore Prima Se 72 & 73.pdf' },
+  'adore-prime-1':             { label: 'Adore Prima 1',             file: '../../brochure/Adore Prima Se 72 & 73.pdf' },
+  'adore-prime-2':             { label: 'Adore Prima 2',             file: '../../brochure/Adore Prima Se 72 & 73.pdf' },
 
   /* ---- Sector 97-98 ---- */
   'adore-smart-city':          { label: 'Adore Smart City 1 & 2',    file: '../../brochure/Adore Smart city 1 and 2 sec 97.pdf' },
