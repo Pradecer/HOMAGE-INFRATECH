@@ -105,6 +105,11 @@ const FARIDABAD_BROCHURE_CATALOG = {
   'amolik-asterwood':          { label: 'Amolik Asterwood',          file: '../../brochure/Amolik asterwood sec 98.pdf' },
   'mansha-oaks':               { label: 'Mansha Oaks',               file: '../../brochure/Mansha Oaks sec 98.pdf' },
   'olive-homes':               { label: 'Olive Homes',               file: '../../brochure/OLIVE-HOMES- SEC 98.pdf' },
+  'amolik-concordia':          { label: 'Amolik Concordia',          file: '../../brochure/amolik concordia sec 97-98.pdf' },
+  'srs-pearl-floors':          { label: 'SRS Pearl Floors',          file: '../../brochure/srs preals floors sec 87.pdf' },
+
+  /* ---- Sector 84 ---- */
+  'adore-legend-1':            { label: 'Adore Legend 1',            file: '../../brochure/adore legend 1 sec 84.pdf' },
 
   /* ---- Sector 104 ---- */
   'adore-legend-3':            { label: 'Adore Legend 3',            file: '../../brochure/Adore Legend 3 Sec 104.pdf' },

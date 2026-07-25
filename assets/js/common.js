@@ -986,6 +986,9 @@ function openBrochureModal(projectName, pdfName) {
   else if (lower.includes('navraj') && (lower.includes('floor') || lower.includes('127'))) resolvedPdf = 'navraj builder floor sec 127.pdf';
   else if (lower.includes('navraj')) resolvedPdf = 'navraj_the_marq_brochure.pdf';
   else if (lower.includes('dameera')) resolvedPdf = 'Dameera City Brochure sec 121.pdf';
+  else if (lower.includes('legend 1') || (lower.includes('legend') && lower.includes('84'))) resolvedPdf = 'adore legend 1 sec 84.pdf';
+  else if (lower.includes('concordia')) resolvedPdf = 'amolik concordia sec 97-98.pdf';
+  else if (lower.includes('preals') || lower.includes('pearl floor') || (lower.includes('srs') && lower.includes('87'))) resolvedPdf = 'srs preals floors sec 87.pdf';
   else if (lower.includes('rps palm drive')) resolvedPdf = 'rps_palm_drive_sector_88.pdf';
   else if (lower.includes('rps palm')) resolvedPdf = 'rps_palm_sector_88.pdf';
   else if (lower.includes('tdi soha')) resolvedPdf = 'tdi_soha_sco_sector_88.pdf';
