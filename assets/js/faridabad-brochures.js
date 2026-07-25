@@ -83,7 +83,6 @@ const FARIDABAD_BROCHURE_CATALOG = {
   'navraj-the-marq-e':         { label: 'Navraj The Marq',            file: '../../brochure/navraj_the_marq_brochure.pdf' },
   'the-wisterias-rps':          { label: 'The Wisteria\'s (RPS)',      file: '../../brochure/The_Wisterias_rps.pdf' },
   'bhumika-the-icon':          { label: 'Bhumika The Icon',          file: '../../brochure/bhumika_brochure.pdf' },
-  'bhumika-nh2':               { label: 'Bhumika Residential Enclave', file: '../../brochure/bhumika_brochure.pdf' },
   'bhumika':                   { label: 'Bhumika Group Projects',    file: '../../brochure/bhumika_brochure.pdf' },
   'dameera':                   { label: 'Dameera Residences',        file: '../../brochure/Dameera sec121.pdf' },
   'coral-park':                { label: 'Coral Park (New Stone)',    file: '../../brochure/Coral Park ( New Stone ) sector \ufeffnamaste A.pdf' },

@@ -585,7 +585,6 @@ function initNavSearch() {
 
     // Sector 88 Projects
     { name: "SRS Residency", url: "faridabad/sector-88/index.html#srs-residency", keywords: ["srs", "residency", "srs residency", "sector 88"] },
-    { name: "RPS Groups", url: "faridabad/sector-88/index.html#rps-groups", keywords: ["rps", "groups", "rps groups", "sector 88"] },
     { name: "RPS Savana", url: "faridabad/sector-88/index.html#rps-savana", keywords: ["rps", "savana", "rps savana", "sector 88"] },
     { name: "KST Whispering Heights", url: "faridabad/sector-88/index.html#kst-whispering-heights", keywords: ["kst", "whispering", "heights", "kst whispering heights", "sector 88"] },
     { name: "B Block BPTP (Sector 88)", url: "faridabad/sector-88/index.html#bptp-block-b-sec-88", keywords: ["b block", "bptp b block", "bptp", "sector 88"] },
@@ -1109,5 +1108,4 @@ function handleBrochureSubmit(e) {
 window.openBrochureModal = openBrochureModal;
 window.closeBrochureModal = closeBrochureModal;
 window.handleBrochureSubmit = handleBrochureSubmit;
-
 

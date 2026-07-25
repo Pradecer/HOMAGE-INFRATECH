@@ -146,7 +146,6 @@ const BROCHURE_CATALOG = {
   'navraj-the-marq-e':         { label: 'Navraj The Marq',            file: '../brochure/navraj_the_marq_brochure.pdf' },
   'the-wisterias-rps':          { label: 'The Wisteria\'s (RPS)',      file: '../brochure/The_Wisterias_rps.pdf' },
   'bhumika-the-icon':          { label: 'Bhumika The Icon',          file: '../brochure/bhumika_brochure.pdf' },
-  'bhumika-nh2':               { label: 'Bhumika Residential Enclave', file: '../brochure/bhumika_brochure.pdf' },
   'bhumika':                   { label: 'Bhumika Group Projects',    file: '../brochure/bhumika_brochure.pdf' },
   'rps-palm-drive':            { label: 'RPS Palm Drive',            file: '../brochure/rps_palm_drive_sector_88.pdf' },
   'rps-palm':                  { label: 'RPS Palm',                  file: '../brochure/rps_palm_sector_88.pdf' },
