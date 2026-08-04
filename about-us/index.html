@@ -11,7 +11,7 @@
   
   <!-- Open Graph -->
   <meta property="og:title" content="About Us | Homage Infratech">
-  <meta property="og:description" content="Discover Faridabad's trusted plot advisory with 15+ years of local experience. Professional land sales advice since 2005.">
+  <meta property="og:description" content="Discover Faridabad's trusted plot advisory with 22+ years of local experience. Professional land sales advice since 2005.">
   <meta property="og:image" content="../assets/images/gallery_site_2.png">
   <meta property="og:type" content="website">
   
@@ -180,7 +180,7 @@
       <div class="narrative-grid">
         <div class="narrative-text">
           <span class="badge badge-primary">Company History</span>
-          <h2 class="section-title" style="text-align: left; margin-bottom: 25px;">Faridabad's Land Specialists <span>For Over 15 Years</span></h2>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 25px;">Faridabad's Land Specialists <span>For Over 22 Years</span></h2>
           <p>Incorporated in 2005 in Faridabad, Haryana, Homage Infratech is a certified real estate consultancy specializing in plotted developments across residential, commercial, and industrial property segments.</p>
           <p>We do not sell built flats, houses, or villas. Our singular focus is land and plots — empowering individuals and commercial investors to purchase clear-titled properties, design their structures, and build their own futures.</p>
           <div class="quote-block">
@@ -282,12 +282,20 @@
           desc: "Achieving homeownership is a life-defining milestone. Our team stands committed to managing secure title deeds, registry clearance, and seamless builder floor key handovers to ensure zero friction for buyers."
         },
         {
-          image: "../assets/images/award_training.jpg",
-          alt: "Team training at Bhumika",
-          badge: "Strategic Excellence",
-          title: "Insightful Team Training <span>at Bhumika</span>",
-          quote: `"Team Training at Bhumika 🚀 Conducted an insightful team training session at Bhumika for their upcoming projects. Empowering our team with knowledge, strategy, and confidence to deliver the best results. Exciting opportunities ahead! ✨"`,
-          desc: "Continuous education keeps our consultants at the cutting edge. This masterclass aligns our strategy, refines legal checkpoints, and equips the sales force to advise clients perfectly on Bhumika's upcoming high-appreciation layouts."
+          image: "../assets/images/award_bhumika_abundance.jpg",
+          alt: "Bhumika Realty Certificate of Prosperity & Abundance presentation",
+          badge: "Partner Prosperity",
+          title: "Bhumika Realty <span>Prosperity & Abundance Letter</span>",
+          quote: `"Proud to receive the Letter of Prosperity & Abundance from Bhumika Realty. Partnering to build a future of excellence and trust. 📜✨"`,
+          desc: "Homage Infratech is honored by Bhumika Realty with this Letter of Prosperity & Abundance, recognizing our outstanding channel partnership, transparent sales advisory, and dedication to customer success."
+        },
+        {
+          image: "../assets/images/award_anjani.jpg",
+          alt: "Anjani Certificate of Appreciation handover to Kuldeep Kumar Angurala",
+          badge: "Elite Recognition",
+          title: "Anjani Group <span>Certificate of Appreciation</span>",
+          quote: `"Grateful to receive the Certificate of Appreciation from Anjani Group. Trust and transparency remain our highest priorities. 📜🤝"`,
+          desc: "Kuldeep Kumar Angurala and the Homage Infratech team are honored by Anjani Group for our commitment to transparent dealing, high-quality client services, and outstanding market contribution."
         }
       ];
 
@@ -300,6 +308,11 @@
       const prevBtn = document.getElementById('carousel-prev');
       const nextBtn = document.getElementById('carousel-next');
       const dotsContainer = document.getElementById('carousel-dots');
+
+      // Initialize dots dynamically based on the slides length
+      dotsContainer.innerHTML = slides.map((_, index) => 
+        `<span class="dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>`
+      ).join('');
 
       function updateDots() {
         const dots = dotsContainer.querySelectorAll('.dot');
@@ -419,11 +432,11 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-number" data-target="15" data-suffix="+">0</div>
+          <div class="stat-number" data-target="22" data-suffix="+">0</div>
           <div class="stat-label">Years of Trust</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number" data-target="500" data-suffix="+">0</div>
+          <div class="stat-number" data-target="2500" data-suffix="+">0</div>
           <div class="stat-label">Happy Investors</div>
         </div>
         <div class="stat-card">
